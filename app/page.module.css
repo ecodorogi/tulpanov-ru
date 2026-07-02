@@ -1,24 +1,29 @@
 .page {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
+/* Nav */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 28px;
+  padding: 18px 32px;
   border-bottom: 0.5px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
 }
 
 .navName {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .navLinks {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   font-size: 13px;
 }
 
@@ -31,46 +36,42 @@
   color: var(--ink);
 }
 
+/* Hero */
 .hero {
-  padding: 64px 28px 56px;
+  padding: 56px 32px 48px;
   border-bottom: 0.5px solid var(--border);
+}
+
+.heroMeta {
   display: flex;
-  gap: 28px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
 .portrait {
-  width: 132px;
-  height: 146px;
+  width: 96px;
+  height: 106px;
   object-fit: cover;
-  border-radius: var(--border-radius-md, 8px);
+  object-position: center top;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
-.hero h1 {
-  font-size: clamp(28px, 5vw, 38px);
+.heroName {
+  font-size: 28px;
   line-height: 1.2;
-  margin: 0 0 16px;
+  margin: 0 0 6px;
 }
 
-.hero p {
+.heroRole {
   font-size: 15px;
   color: var(--muted);
-  line-height: 1.7;
-  max-width: 46ch;
-  margin: 0 0 24px;
+  margin: 0;
 }
 
-.cta {
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 500;
-  text-decoration: underline;
-}
-
+/* Sections */
 .section {
-  padding: 48px 28px;
+  padding: 56px 32px;
   border-bottom: 0.5px solid var(--border);
 }
 
@@ -79,49 +80,80 @@
 }
 
 .section h2 {
-  font-size: 20px;
-  margin: 0 0 12px;
-}
-
-.kicker {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 22px;
   margin: 0 0 20px;
 }
 
+/* Body text */
+.body {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.75;
+  max-width: 58ch;
+  margin: 0 0 16px;
+}
+
+/* Projects */
 .list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
+  margin-top: 4px;
 }
 
-.row {
+.projectRow p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 56ch;
+  margin: 6px 0 0;
+}
+
+.projectHead {
   display: flex;
-  gap: 16px;
   align-items: baseline;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.rowTitle {
+.projectTitle {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 17px;
-  min-width: 140px;
+  font-size: 18px;
 }
 
-.row p {
-  font-size: 14px;
+.projectLink {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+}
+
+.projectBadge {
+  font-size: 12px;
+  color: var(--accent);
+  border: 0.5px solid var(--accent);
+  border-radius: var(--border-radius-md, 8px);
+  padding: 2px 8px;
+}
+
+/* Forum groups */
+.testimonials {
+  margin: 28px 0 24px;
+  min-height: 120px;
+  border: 0.5px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonialsHint {
+  font-size: 13px;
   color: var(--muted);
   margin: 0;
-  line-height: 1.6;
-  max-width: 48ch;
-}
-
-.lead {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 48ch;
-  margin: 0 0 20px;
 }
 
 .link {
@@ -131,8 +163,26 @@
   text-decoration: underline;
 }
 
+/* Sport */
+.sportPhotoPlaceholder {
+  width: 100%;
+  height: 200px;
+  background: var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sportPhotoPlaceholder span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Contact */
 .contact {
-  padding: 48px 28px;
+  padding: 48px 32px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -140,8 +190,18 @@
   gap: 16px;
 }
 
-.contact .lead {
+.contact h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.contactLinks {
+  font-size: 15px;
   margin: 0;
+}
+
+.contactLinks a {
+  color: var(--accent);
 }
 
 .domain {
