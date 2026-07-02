@@ -11,6 +11,7 @@ export default function Home() {
           <a href="#about">О себе</a>
           <a href="#projects">Проекты</a>
           <a href="#forum-groups">Форум-группы</a>
+          <a href="#hobbies">Хобби</a>
           <a href="#contact">Контакты</a>
         </nav>
       </header>
@@ -25,7 +26,6 @@ export default function Home() {
           priority
         />
         <div>
-          <h1>Спокойно. Основательно. По делу.</h1>
           <p>
             Социальный предприниматель и сертифицированный модератор форум-групп
             и ретрит-тренер (Академия модерации), выпускник программы
@@ -92,6 +92,11 @@ export default function Home() {
         <a href="#contact" className={styles.link}>
           Обсудить форум-группу или ретрит →
         </a>
+      </Reveal>
+
+      <Reveal as="section" id="hobbies" className={styles.section}>
+        <p className={styles.kicker}>Хобби</p>
+        <p className={styles.lead}>Скоро здесь появится информация о спорте.</p>
       </Reveal>
 
       <Reveal as="section" id="contact" className={styles.contact}>
