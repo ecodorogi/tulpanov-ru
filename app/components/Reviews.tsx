@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import styles from "./Reviews.module.css";
 
@@ -11,16 +11,37 @@ const images = [
 ];
 
 export default function Reviews() {
-  const [active, setActive] = useState<string | null>(null);
+  const [index, setIndex] = useState<number | null>(null);
+
+  const prev = useCallback(() => {
+    setIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
+  }, []);
+
+  const next = useCallback(() => {
+    setIndex((i) => (i === null ? null : (i + 1) % images.length));
+  }, []);
+
+  const close = useCallback(() => setIndex(null), []);
+
+  useEffect(() => {
+    if (index === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [index, prev, next, close]);
 
   return (
     <>
       <div className={styles.grid}>
-        {images.map((name) => (
+        {images.map((name, i) => (
           <button
             key={name}
             className={styles.thumb}
-            onClick={() => setActive(name)}
+            onClick={() => setIndex(i)}
             aria-label="Открыть отзыв"
           >
             <Image
@@ -34,18 +55,23 @@ export default function Reviews() {
         ))}
       </div>
 
-      {active && (
-        <div className={styles.overlay} onClick={() => setActive(null)}>
+      {index !== null && (
+        <div className={styles.overlay} onClick={close}>
+          <button className={styles.navBtn} onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Предыдущий">‹</button>
+
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.close} onClick={() => setActive(null)} aria-label="Закрыть">×</button>
+            <button className={styles.close} onClick={close} aria-label="Закрыть">×</button>
             <Image
-              src={`/reviews/${active}.jpg`}
+              src={`/reviews/${images[index]}.jpg`}
               alt="Отзыв"
               width={600}
               height={900}
               style={{ width: "100%", height: "auto", display: "block" }}
             />
+            <p className={styles.counter}>{index + 1} / {images.length}</p>
           </div>
+
+          <button className={styles.navBtn} onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Следующий">›</button>
         </div>
       )}
     </>
