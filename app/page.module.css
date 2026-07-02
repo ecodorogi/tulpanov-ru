@@ -1,0 +1,150 @@
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.navName {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+}
+
+.navLinks a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.navLinks a:hover {
+  color: var(--ink);
+}
+
+.hero {
+  padding: 64px 28px 56px;
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.portrait {
+  width: 132px;
+  height: 146px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md, 8px);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 38px);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.hero p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 46ch;
+  margin: 0 0 24px;
+}
+
+.cta {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.section {
+  padding: 48px 28px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.sectionMuted {
+  background: var(--surface);
+}
+
+.section h2 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+
+.kicker {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.rowTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 17px;
+  min-width: 140px;
+}
+
+.row p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 48ch;
+}
+
+.lead {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 48ch;
+  margin: 0 0 20px;
+}
+
+.link {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.contact {
+  padding: 48px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contact .lead {
+  margin: 0;
+}
+
+.domain {
+  font-size: 12px;
+  color: var(--muted);
+}
