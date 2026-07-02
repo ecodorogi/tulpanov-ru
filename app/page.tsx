@@ -74,7 +74,7 @@ export default function Home() {
             </div>
             <p>
               Лидер рынка проката и аттракционов в парках Москвы и области.
-              CEO и управляющий партнёр, 2021–2025.
+              CEO, 2021–2025.
             </p>
           </div>
           <div className={styles.projectRow}>
