@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "./components/Reveal";
+import Reviews from "./components/Reviews";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -104,10 +105,7 @@ export default function Home() {
           и групповую динамику. Также провожу выездные ретриты.
         </p>
 
-        {/* Отзывы — заглушка, будет заполнено скриншотами */}
-        <div className={styles.testimonials}>
-          <p className={styles.testimonialsHint}>← скриншоты отзывов появятся здесь</p>
-        </div>
+        <Reviews />
 
         <a href="#contact" className={styles.link}>Обсудить участие →</a>
       </Reveal>

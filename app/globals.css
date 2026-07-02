@@ -8,6 +8,8 @@
   --accent: oklch(0.360 0.140 270);
   --accent-ink: oklch(1.000 0.000 0);
   --border: oklch(0.910 0.006 270);
+  --shadow-sm: oklch(0 0 0 / 0.12);
+  --overlay: oklch(0 0 0 / 0.6);
 }
 
 *, *::before, *::after {
