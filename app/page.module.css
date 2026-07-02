@@ -27,6 +27,16 @@
   font-size: 13px;
 }
 
+@media (max-width: 600px) {
+  .nav {
+    padding: 14px 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+}
+
 .navLinks a {
   color: var(--muted);
   text-decoration: none;
@@ -178,6 +188,24 @@
 .sportPhotoPlaceholder span {
   font-size: 13px;
   color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 36px 20px 32px;
+  }
+
+  .heroName {
+    font-size: 22px;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .contact {
+    padding: 36px 20px;
+  }
 }
 
 /* Contact */

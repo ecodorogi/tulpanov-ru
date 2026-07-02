@@ -91,6 +91,31 @@
   background: var(--surface);
 }
 
+@media (max-width: 600px) {
+  .overlay {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--border-radius-lg, 12px) var(--border-radius-lg, 12px) 0 0;
+    max-height: 85vh;
+  }
+
+  .navBtn {
+    display: none;
+  }
+
+  .counter {
+    font-size: 13px;
+    padding: 12px 0 16px;
+  }
+}
+
 .counter {
   text-align: center;
   font-size: 12px;

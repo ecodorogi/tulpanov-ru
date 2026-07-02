@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import styles from "./Reviews.module.css";
 
@@ -12,6 +12,7 @@ const images = [
 
 export default function Reviews() {
   const [index, setIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const prev = useCallback(() => {
     setIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
@@ -56,7 +57,18 @@ export default function Reviews() {
       </div>
 
       {index !== null && (
-        <div className={styles.overlay} onClick={close}>
+        <div
+          className={styles.overlay}
+          onClick={close}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            if (dx < -50) next();
+            else if (dx > 50) prev();
+            touchStartX.current = null;
+          }}
+        >
           <button className={styles.navBtn} onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Предыдущий">‹</button>
 
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
