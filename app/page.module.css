@@ -173,18 +173,13 @@
   text-decoration: underline;
 }
 
-/* Venues inside forum-groups */
-.venuesBlock {
-  margin-top: 40px;
-  padding-top: 36px;
-  border-top: 0.5px solid var(--border);
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
 }
 
-.venuesTitle {
-  font-size: 17px;
-  font-weight: 500;
-  margin: 0 0 12px;
-}
 
 /* Sport */
 .sportPhotoPlaceholder {

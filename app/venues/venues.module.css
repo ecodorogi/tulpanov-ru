@@ -1,0 +1,50 @@
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 18px 32px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.back {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+.main {
+  padding: 56px 32px;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+.lead {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 58ch;
+  margin: 0 0 36px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 14px 20px;
+  }
+
+  .main {
+    padding: 36px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

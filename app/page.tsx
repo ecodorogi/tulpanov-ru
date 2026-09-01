@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Reveal from "./components/Reveal";
 import Reviews from "./components/Reviews";
-import VenuesSection from "./components/VenuesSection";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -108,15 +107,10 @@ export default function Home() {
 
         <Reviews />
 
-        <div className={styles.venuesBlock}>
-          <h3 className={styles.venuesTitle}>Площадки для встреч и ретритов</h3>
-          <p className={styles.body}>
-            Проверенные места — переговорки, рестораны с кабинками и загородные базы.
-          </p>
-          <VenuesSection />
+        <div className={styles.linkGroup}>
+          <a href="/venues" className={styles.link}>Площадки для встреч и ретритов →</a>
+          <a href="#contact" className={styles.link}>Обсудить участие →</a>
         </div>
-
-        <a href="#contact" className={styles.link}>Обсудить участие →</a>
       </Reveal>
 
       {/* Спорт */}
