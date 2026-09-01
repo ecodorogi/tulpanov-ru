@@ -228,7 +228,7 @@ const retreats: Venue[] = [
     name: "Веслево-клуб",
     location: "Переславль-Залесский, 120 км от Москвы",
     url: "https://veslevo.club/",
-    note: "Владелец — Атлант Павел Васин. Коттеджи и барнхаусы у Плещеева озера. Бани, конюшня, ресторан",
+    note: "Коттеджи и барнхаусы у Плещеева озера. Бани, конюшня, ресторан",
   },
   {
     name: "Конаково",
@@ -380,6 +380,144 @@ const tabs = [
 
 type TabId = (typeof tabs)[number]["id"];
 
+function ReportButton({ venueName }: { venueName: string }) {
+  const [open, setOpen] = useState(false);
+  const [comment, setComment] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    const res = await fetch("/api/venue-report", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ venueName, comment }),
+    });
+    setStatus(res.ok ? "done" : "error");
+  }
+
+  if (!open) {
+    return (
+      <button className={styles.reportBtn} onClick={() => setOpen(true)}>
+        Не зашло
+      </button>
+    );
+  }
+
+  if (status === "done") {
+    return <span className={styles.reportDone}>Спасибо, учтём</span>;
+  }
+
+  return (
+    <form className={styles.reportForm} onSubmit={handleSubmit}>
+      <textarea
+        className={styles.reportTextarea}
+        placeholder="Что не понравилось? (необязательно)"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        rows={2}
+      />
+      <div className={styles.reportActions}>
+        <button type="submit" className={styles.reportSubmit} disabled={status === "sending"}>
+          {status === "sending" ? "Отправляем…" : "Отправить"}
+        </button>
+        <button type="button" className={styles.reportCancel} onClick={() => setOpen(false)}>
+          Отмена
+        </button>
+        {status === "error" && <span className={styles.reportError}>Ошибка, попробуйте позже</span>}
+      </div>
+    </form>
+  );
+}
+
+function SuggestForm() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", location: "", url: "", comment: "", from: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  function set(field: keyof typeof form) {
+    return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setForm((f) => ({ ...f, [field]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    const res = await fetch("/api/venue-suggest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    setStatus(res.ok ? "done" : "error");
+  }
+
+  if (!open) {
+    return (
+      <button className={styles.suggestBtn} onClick={() => setOpen(true)}>
+        + Предложить площадку
+      </button>
+    );
+  }
+
+  if (status === "done") {
+    return (
+      <div className={styles.suggestSuccess}>
+        Спасибо! Рассмотрим и добавим, если подходит.
+      </div>
+    );
+  }
+
+  return (
+    <form className={styles.suggestForm} onSubmit={handleSubmit}>
+      <p className={styles.suggestTitle}>Предложить площадку</p>
+      <input
+        className={styles.suggestInput}
+        placeholder="Название *"
+        value={form.name}
+        onChange={set("name")}
+        required
+      />
+      <input
+        className={styles.suggestInput}
+        placeholder="Адрес *"
+        value={form.location}
+        onChange={set("location")}
+        required
+      />
+      <input
+        className={styles.suggestInput}
+        placeholder="Ссылка (необязательно)"
+        value={form.url}
+        onChange={set("url")}
+        type="url"
+      />
+      <textarea
+        className={styles.suggestTextarea}
+        placeholder="Почему рекомендуете? *"
+        value={form.comment}
+        onChange={set("comment")}
+        rows={3}
+        required
+      />
+      <input
+        className={styles.suggestInput}
+        placeholder="Ваше имя или контакт (необязательно)"
+        value={form.from}
+        onChange={set("from")}
+      />
+      <div className={styles.reportActions}>
+        <button type="submit" className={styles.reportSubmit} disabled={status === "sending"}>
+          {status === "sending" ? "Отправляем…" : "Отправить"}
+        </button>
+        <button type="button" className={styles.reportCancel} onClick={() => setOpen(false)}>
+          Отмена
+        </button>
+        {status === "error" && <span className={styles.reportError}>Ошибка, попробуйте позже</span>}
+      </div>
+    </form>
+  );
+}
+
 export default function VenuesSection() {
   const [active, setActive] = useState<TabId>("meeting");
 
@@ -414,9 +552,14 @@ export default function VenuesSection() {
             </div>
             <div className={styles.itemLocation}>{v.location}</div>
             {v.note && <div className={styles.itemNote}>{v.note}</div>}
+            <ReportButton venueName={v.name} />
           </li>
         ))}
       </ul>
+
+      <div className={styles.suggestWrap}>
+        <SuggestForm />
+      </div>
     </div>
   );
 }

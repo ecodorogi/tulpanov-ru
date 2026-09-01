@@ -82,3 +82,164 @@ a.itemName:hover {
   max-width: 56ch;
   opacity: 0.75;
 }
+
+/* Report */
+.reportBtn {
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 4px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.reportBtn:hover {
+  color: var(--ink);
+}
+
+.reportDone {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  display: block;
+}
+
+.reportForm {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 360px;
+}
+
+.reportTextarea {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.reportTextarea:focus {
+  outline: none;
+  border-color: var(--muted);
+}
+
+.reportActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reportSubmit {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 0.5px solid var(--ink);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.reportSubmit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.reportCancel {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.reportError {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Suggest */
+.suggestWrap {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 0.5px solid var(--border);
+}
+
+.suggestBtn {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--accent);
+  background: none;
+  border: 0.5px solid var(--accent);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.suggestBtn:hover {
+  background: var(--surface);
+}
+
+.suggestSuccess {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 12px 0;
+}
+
+.suggestForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.suggestTitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 2px;
+  color: var(--ink);
+}
+
+.suggestInput {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.suggestInput:focus {
+  outline: none;
+  border-color: var(--muted);
+}
+
+.suggestTextarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.suggestTextarea:focus {
+  outline: none;
+  border-color: var(--muted);
+}
