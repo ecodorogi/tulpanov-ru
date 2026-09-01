@@ -13,7 +13,6 @@ export default function Home() {
           <a href="#about">О себе</a>
           <a href="#projects">Проекты</a>
           <a href="#forum-groups">Форум-группы</a>
-          <a href="#venues">Площадки</a>
           <a href="#sport">Спорт</a>
           <a href="#contact">Контакты</a>
         </nav>
@@ -109,17 +108,15 @@ export default function Home() {
 
         <Reviews />
 
-        <a href="#contact" className={styles.link}>Обсудить участие →</a>
-      </Reveal>
+        <div className={styles.venuesBlock}>
+          <h3 className={styles.venuesTitle}>Площадки для встреч и ретритов</h3>
+          <p className={styles.body}>
+            Проверенные места — переговорки, рестораны с кабинками и загородные базы.
+          </p>
+          <VenuesSection />
+        </div>
 
-      {/* Площадки */}
-      <Reveal as="section" id="venues" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Площадки для ретритов и форумов</h2>
-        <p className={styles.body}>
-          Проверенные места для форум-встреч, деловых переговоров и выездных ретритов —
-          собираю личный опыт и рекомендации коллег.
-        </p>
-        <VenuesSection />
+        <a href="#contact" className={styles.link}>Обсудить участие →</a>
       </Reveal>
 
       {/* Спорт */}
