@@ -15,6 +15,7 @@ export default function Home() {
           <a href="#sport">Спорт</a>
           <a href="#contact">Контакты</a>
         </nav>
+        <a href="#contact" className={styles.navCta}>Записаться</a>
       </header>
 
       {/* Hero */}
@@ -34,6 +35,34 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Для кого */}
+      <Reveal as="section" id="for-whom" className={`${styles.section} ${styles.sectionMuted}`}>
+        <h2>Для кого</h2>
+        <div className={styles.forWhomGrid}>
+          <div className={styles.forWhomItem}>
+            <span className={styles.forWhomIcon}>◈</span>
+            <div>
+              <strong>Предприниматели и основатели</strong>
+              <p>Те, кто несёт ответственность за бизнес и хочет обсуждать реальные решения в доверенном кругу</p>
+            </div>
+          </div>
+          <div className={styles.forWhomItem}>
+            <span className={styles.forWhomIcon}>◈</span>
+            <div>
+              <strong>Руководители и топ-менеджеры</strong>
+              <p>Кто устал от поверхностных нетворкингов и ищет глубокий диалог с равными</p>
+            </div>
+          </div>
+          <div className={styles.forWhomItem}>
+            <span className={styles.forWhomIcon}>◈</span>
+            <div>
+              <strong>Те, кто проходит точку перехода</strong>
+              <p>Смена роли, масштабирование, личный кризис — форум-группа помогает увидеть ситуацию со стороны</p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
 
       {/* О себе */}
       <Reveal as="section" id="about" className={styles.section}>
@@ -105,6 +134,11 @@ export default function Home() {
           и групповую динамику. Также провожу выездные форум-ретриты.
         </p>
 
+        <blockquote className={styles.quote}>
+          «Думай не о тех верных, которые восхваляют твои слова, а о тех, кто доброжелательно обличает твои недостатки»
+          <cite>— Сократ</cite>
+        </blockquote>
+
         <Reviews />
 
         <div className={styles.linkGroup}>
@@ -125,6 +159,26 @@ export default function Home() {
         <p className={styles.body}>
           Бегаю ультра-трейл. Максимальная дистанция — 109,5 км.
         </p>
+      </Reveal>
+
+      {/* Результаты */}
+      <Reveal as="section" id="results" className={`${styles.section} ${styles.sectionMuted}`}>
+        <h2>Что говорят участники</h2>
+        <div className={styles.resultsGrid}>
+          <div className={styles.resultCard}>
+            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
+            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
+          </div>
+          <div className={styles.resultCard}>
+            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
+            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
+          </div>
+          <div className={styles.resultCard}>
+            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
+            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
+          </div>
+        </div>
+        <p className={styles.resultHint}>← Добавьте реальные цитаты или видео-отзывы участников</p>
       </Reveal>
 
       {/* Контакты */}
