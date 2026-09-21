@@ -151,34 +151,17 @@ export default function Home() {
       <Reveal as="section" id="sport" className={`${styles.section} ${styles.sectionMuted}`}>
         <h2>Спорт</h2>
 
-        {/* Фото спорта — заглушка */}
-        <div className={styles.sportPhotoPlaceholder}>
-          <span>← фото с гонки</span>
+        <div className={styles.sportPhotos}>
+          <Image src="/sport-1.webp" alt="Ультра-трейл — брод реки" width={600} height={400} className={styles.sportPhoto} />
+          <Image src="/sport-2.webp" alt="Ультра-трейл — лесная трасса" width={600} height={400} className={styles.sportPhoto} />
+          <Image src="/sport-3.webp" alt="Перевал Торонг-Ла, 5416 м, Непал" width={600} height={400} className={styles.sportPhoto} />
         </div>
 
         <p className={styles.body}>
-          Бегаю ультра-трейл. Максимальная дистанция — 109,5 км.
+          Бегаю ультра-трейл — горные гонки по бездорожью на дистанциях от 50 до 110 км.
+          Люблю горный трекинг: был на перевале Торонг-Ла в Непале (5416 м).
+          Спорт — это способ проверять себя в ситуациях, где нет запасного плана.
         </p>
-      </Reveal>
-
-      {/* Результаты */}
-      <Reveal as="section" id="results" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Что говорят участники</h2>
-        <div className={styles.resultsGrid}>
-          <div className={styles.resultCard}>
-            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
-            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
-          </div>
-          <div className={styles.resultCard}>
-            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
-            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
-          </div>
-          <div className={styles.resultCard}>
-            <p className={styles.resultText}>«[← ваша цитата участника форум-группы]»</p>
-            <span className={styles.resultAuthor}>Имя, роль / бизнес</span>
-          </div>
-        </div>
-        <p className={styles.resultHint}>← Добавьте реальные цитаты или видео-отзывы участников</p>
       </Reveal>
 
       {/* Контакты */}
