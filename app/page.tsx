@@ -52,6 +52,23 @@ export default function Home() {
         </p>
       </Reveal>
 
+      {/* Сертификаты */}
+      <Reveal as="section" id="certs" className={`${styles.section} ${styles.sectionMuted}`}>
+        <h2>Сертификаты и дипломы</h2>
+        <div className={styles.certsGrid}>
+          <div className={styles.certCard}>
+            <Image
+              src="/cert-moderation.webp"
+              alt="Удостоверение — Мастер организации групповой работы в формате «Ретрит для бизнес-форума»"
+              width={480}
+              height={340}
+              className={styles.certCardImage}
+            />
+            <p className={styles.certCardCaption}>Мастер организации групповой работы · Ретрит для бизнес-форума · Академия Модерации, 2025</p>
+          </div>
+        </div>
+      </Reveal>
+
       {/* Проекты */}
       <Reveal as="section" id="projects" className={`${styles.section} ${styles.sectionMuted}`}>
         <h2>Проекты</h2>
@@ -105,17 +122,6 @@ export default function Home() {
           участники сами находят решения: через глубину обсуждения, доверие
           и групповую динамику. Также провожу выездные форум-ретриты.
         </p>
-
-        <div className={styles.certRow}>
-          <Image
-            src="/cert-moderation.webp"
-            alt="Удостоверение о повышении квалификации — Мастер организации групповой работы в формате «Ретрит для бизнес-форума», Академия Модерации, 2025"
-            width={480}
-            height={340}
-            className={styles.certImage}
-          />
-          <p className={styles.certCaption}>Удостоверение о повышении квалификации · Академия Модерации · 2025</p>
-        </div>
 
         <blockquote className={styles.quote}>
           «Думай не о тех верных, которые восхваляют твои слова, а о тех, кто доброжелательно обличает твои недостатки»
