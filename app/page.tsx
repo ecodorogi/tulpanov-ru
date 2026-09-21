@@ -106,6 +106,17 @@ export default function Home() {
           и групповую динамику. Также провожу выездные форум-ретриты.
         </p>
 
+        <div className={styles.certRow}>
+          <Image
+            src="/cert-moderation.webp"
+            alt="Удостоверение о повышении квалификации — Мастер организации групповой работы в формате «Ретрит для бизнес-форума», Академия Модерации, 2025"
+            width={480}
+            height={340}
+            className={styles.certImage}
+          />
+          <p className={styles.certCaption}>Удостоверение о повышении квалификации · Академия Модерации · 2025</p>
+        </div>
+
         <blockquote className={styles.quote}>
           «Думай не о тех верных, которые восхваляют твои слова, а о тех, кто доброжелательно обличает твои недостатки»
           <cite>— Сократ</cite>
