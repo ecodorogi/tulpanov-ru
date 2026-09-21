@@ -224,6 +224,35 @@
   }
 }
 
+/* Video reviews */
+.videoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.videoPlaceholder {
+  aspect-ratio: 16/9;
+  background: var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoPlaceholder span {
+  font-size: 24px;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Nav CTA */
 .navCta {
   font-size: 13px;

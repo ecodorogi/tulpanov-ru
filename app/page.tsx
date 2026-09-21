@@ -15,7 +15,7 @@ export default function Home() {
           <a href="#sport">Спорт</a>
           <a href="#contact">Контакты</a>
         </nav>
-        <a href="#contact" className={styles.navCta}>Записаться</a>
+        <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.navCta}>Записаться</a>
       </header>
 
       {/* Hero */}
@@ -35,34 +35,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Для кого */}
-      <Reveal as="section" id="for-whom" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Для кого</h2>
-        <div className={styles.forWhomGrid}>
-          <div className={styles.forWhomItem}>
-            <span className={styles.forWhomIcon}>◈</span>
-            <div>
-              <strong>Предприниматели и основатели</strong>
-              <p>Те, кто несёт ответственность за бизнес и хочет обсуждать реальные решения в доверенном кругу</p>
-            </div>
-          </div>
-          <div className={styles.forWhomItem}>
-            <span className={styles.forWhomIcon}>◈</span>
-            <div>
-              <strong>Руководители и топ-менеджеры</strong>
-              <p>Кто устал от поверхностных нетворкингов и ищет глубокий диалог с равными</p>
-            </div>
-          </div>
-          <div className={styles.forWhomItem}>
-            <span className={styles.forWhomIcon}>◈</span>
-            <div>
-              <strong>Те, кто проходит точку перехода</strong>
-              <p>Смена роли, масштабирование, личный кризис — форум-группа помогает увидеть ситуацию со стороны</p>
-            </div>
-          </div>
-        </div>
-      </Reveal>
 
       {/* О себе */}
       <Reveal as="section" id="about" className={styles.section}>
@@ -143,7 +115,7 @@ export default function Home() {
 
         <div className={styles.linkGroup}>
           <a href="/venues" className={styles.link}>Площадки для встреч и ретритов →</a>
-          <a href="#contact" className={styles.link}>Обсудить участие →</a>
+          <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.link}>Обсудить участие →</a>
         </div>
       </Reveal>
 
@@ -153,15 +125,24 @@ export default function Home() {
 
         <div className={styles.sportPhotos}>
           <Image src="/sport-1.webp" alt="Ультра-трейл — брод реки" width={600} height={400} className={styles.sportPhoto} />
-          <Image src="/sport-2.webp" alt="Ультра-трейл — лесная трасса" width={600} height={400} className={styles.sportPhoto} />
           <Image src="/sport-3.webp" alt="Перевал Торонг-Ла, 5416 м, Непал" width={600} height={400} className={styles.sportPhoto} />
+          <Image src="/sport-2.webp" alt="Ультра-трейл — лесная трасса" width={600} height={400} className={styles.sportPhoto} />
         </div>
 
         <p className={styles.body}>
           Бегаю ультра-трейл — горные гонки по бездорожью на дистанциях от 50 до 110 км.
-          Люблю горный трекинг: был на перевале Торонг-Ла в Непале (5416 м).
-          Спорт — это способ проверять себя в ситуациях, где нет запасного плана.
+          Люблю горный трекинг.
         </p>
+      </Reveal>
+
+      {/* Видео-отзывы */}
+      <Reveal as="section" id="reviews-video" className={`${styles.section} ${styles.sectionMuted}`}>
+        <h2>Видео-отзывы</h2>
+        <div className={styles.videoGrid}>
+          <div className={styles.videoPlaceholder}><span>▶</span></div>
+          <div className={styles.videoPlaceholder}><span>▶</span></div>
+          <div className={styles.videoPlaceholder}><span>▶</span></div>
+        </div>
       </Reveal>
 
       {/* Контакты */}
