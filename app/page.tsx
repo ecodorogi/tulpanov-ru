@@ -1,179 +1,23 @@
 import Image from "next/image";
-import Reveal from "./components/Reveal";
-import Reviews from "./components/Reviews";
-import styles from "./page.module.css";
+import styles from "./coming-soon.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <header className={styles.nav}>
-        <span className={styles.navName}>Александр Тюльпанов</span>
-        <nav className={styles.navLinks}>
-          <a href="#about">О себе</a>
-          <a href="#projects">Проекты</a>
-          <a href="#forum-groups">Форум-группы</a>
-          <a href="#sport">Спорт</a>
-          <a href="#contact">Контакты</a>
-        </nav>
-        <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.navCta}>Записаться</a>
-      </header>
-
-      {/* Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroMeta}>
-          <Image
-            src="/alexander.jpg"
-            alt="Александр Тюльпанов"
-            width={96}
-            height={106}
-            className={styles.portrait}
-            priority
-          />
-          <div>
-            <h1 className={styles.heroName}>Александр Тюльпанов</h1>
-            <p className={styles.heroRole}>Предприниматель · модератор бизнес-форумов</p>
-          </div>
-        </div>
-      </section>
-
-      {/* О себе */}
-      <Reveal as="section" id="about" className={styles.section}>
-        <p className={styles.body}>
-          Строю бизнесы и веду форум-группы — одно помогает понимать второе.
-          15 лет в предпринимательстве: запускал проекты в России и Германии,
-          вывел бренд умных устройств и продал его корпорации Garmin. Сейчас
-          развиваю социальный проект «Природные дороги» и работаю модератором
-          форум-групп в ведущих бизнес-клубах страны.
-        </p>
-        <p className={styles.body}>
-          Выпускник программы «Практикум 27» Бизнес-школы СКОЛКОВО (2023).
-          Сертифицированный ретрит-тренер Академии модерации. Резидент
-          бизнес-клуба «Атланты» с 2020 года.
-        </p>
-      </Reveal>
-
-      {/* Сертификаты */}
-      <Reveal as="section" id="certs" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Сертификаты и дипломы</h2>
-        <div className={styles.certsGrid}>
-          <div className={styles.certCard}>
-            <Image
-              src="/cert-moderation.webp"
-              alt="Удостоверение — Мастер организации групповой работы в формате «Ретрит для бизнес-форума»"
-              width={480}
-              height={340}
-              className={styles.certCardImage}
-            />
-            <p className={styles.certCardCaption}>Мастер организации групповой работы · Ретрит для бизнес-форума · Академия Модерации, 2025</p>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* Проекты */}
-      <Reveal as="section" id="projects" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Проекты</h2>
-        <div className={styles.list}>
-          <div className={styles.projectRow}>
-            <div className={styles.projectHead}>
-              <span className={styles.projectTitle}>Природные дороги</span>
-              <a href="https://ecodorogi.ru" target="_blank" rel="noreferrer" className={styles.projectLink}>ecodorogi.ru →</a>
-            </div>
-            <p>
-              Учредитель. Сеть экологических дорог рядом с городами — для ЗОЖ, туризма и
-              устойчивого развития территорий. Пилот «Дорога в Лавру» (Москва
-              и область). Реализован при участии региональных администраций и
-              министерств.
-            </p>
-          </div>
-          <div className={styles.projectRow}>
-            <div className={styles.projectHead}>
-              <span className={styles.projectTitle}>Кути Катай</span>
-              <a href="https://kutikatai.ru" target="_blank" rel="noreferrer" className={styles.projectLink}>kutikatai.ru →</a>
-            </div>
-            <p>
-              Лидер рынка проката и аттракционов в парках Москвы и области.
-              CEO, 2021–2025.
-            </p>
-          </div>
-          <div className={styles.projectRow}>
-            <div className={styles.projectHead}>
-              <span className={styles.projectTitle}>Watchsport.ru</span>
-              <span className={styles.projectBadge}>Экзит → Garmin</span>
-            </div>
-            <p>
-              B2B/B2C-дистрибуция умных устройств в России и Германии.
-              Основатель и CEO. Продал бренд корпорации Garmin в 2021 году.
-            </p>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* Форум-группы */}
-      <Reveal as="section" id="forum-groups" className={styles.section}>
-        <h2>Форум-группы и ретриты</h2>
-        <p className={styles.body}>
-          Форум-группа — это закрытый круг предпринимателей, где можно
-          говорить честно о том, что реально происходит в бизнесе и жизни.
-          Я веду такие группы с 2021 года в клубах «Атланты»,
-          «Клуб Первых», «Основатели», «Эквиум» и других.
-        </p>
-        <p className={styles.body}>
-          Модератор — это тот, кто создаёт среду, в которой
-          участники сами находят решения: через глубину обсуждения, доверие
-          и групповую динамику. Также провожу выездные форум-ретриты.
-        </p>
-
-        <blockquote className={styles.quote}>
-          «Думай не о тех верных, которые восхваляют твои слова, а о тех, кто доброжелательно обличает твои недостатки»
-          <cite>— Сократ</cite>
-        </blockquote>
-
-        <Reviews />
-
-        <div className={styles.linkGroup}>
-          <a href="/venues" className={styles.link}>Площадки для встреч и ретритов →</a>
-          <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.link}>Обсудить участие →</a>
-        </div>
-      </Reveal>
-
-      {/* Спорт */}
-      <Reveal as="section" id="sport" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Спорт</h2>
-
-        <div className={styles.sportPhotos}>
-          <Image src="/sport-1.webp" alt="Ультра-трейл — брод реки" width={600} height={400} className={styles.sportPhoto} />
-          <Image src="/sport-3.webp" alt="Перевал Торонг-Ла, 5416 м, Непал" width={600} height={400} className={styles.sportPhoto} />
-          <Image src="/sport-2.webp" alt="Ультра-трейл — лесная трасса" width={600} height={400} className={styles.sportPhoto} />
-        </div>
-
-        <p className={styles.body}>
-          Бегаю ультра-трейл — горные гонки по бездорожью на дистанциях от 50 до 110 км.
-          Люблю горный трекинг.
-        </p>
-      </Reveal>
-
-      {/* Видео-отзывы */}
-      <Reveal as="section" id="reviews-video" className={`${styles.section} ${styles.sectionMuted}`}>
-        <h2>Видео-отзывы</h2>
-        <div className={styles.videoGrid}>
-          <div className={styles.videoPlaceholder}><span>▶</span></div>
-          <div className={styles.videoPlaceholder}><span>▶</span></div>
-          <div className={styles.videoPlaceholder}><span>▶</span></div>
-        </div>
-      </Reveal>
-
-      {/* Контакты */}
-      <Reveal as="section" id="contact" className={styles.contact}>
-        <div>
-          <h2>Связаться</h2>
-          <p className={styles.contactLinks}>
-            <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer">Telegram @tulpanov</a>
-            {" · "}
-            <a href="mailto:a.tulpanov@gmail.com">a.tulpanov@gmail.com</a>
-          </p>
-        </div>
-        <span className={styles.domain}>tulpanov.ru</span>
-      </Reveal>
+      <Image
+        src="/alexander.jpg"
+        alt="Александр Тюльпанов"
+        width={80}
+        height={88}
+        className={styles.portrait}
+        priority
+      />
+      <h1 className={styles.name}>Александр Тюльпанов</h1>
+      <p className={styles.role}>Предприниматель · модератор бизнес-форумов</p>
+      <p className={styles.status}>Сайт готовится к запуску</p>
+      <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.link}>
+        Написать в Telegram →
+      </a>
     </div>
   );
 }
