@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const plexSans = IBM_Plex_Sans({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500"],
-  variable: "--font-sans",
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
-const sourceSerif = Source_Serif_4({
+const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-serif",
+  weight: ["300", "400", "500"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
   title: "Александр Тюльпанов",
   description:
-    "Предприниматель и фасилитатор форум-групп и форум-ретритов. Проекты, в том числе «Природные дороги».",
+    "Предприниматель и модератор форум-групп. Ретриты, форум-группы, «Природные дороги».",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${plexSans.variable} ${sourceSerif.variable}`}>
+    <html lang="ru" className={`${cormorant.variable} ${montserrat.variable}`}>
       <body>{children}</body>
     </html>
   );
