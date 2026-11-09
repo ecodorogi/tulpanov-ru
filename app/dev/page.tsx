@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import Reviews from "../components/Reviews";
 import s from "./page.module.css";
 
 export default function Dev() {
@@ -30,6 +31,7 @@ export default function Dev() {
         <ul className={s.navLinks}>
           <li><a href="#about">Обо мне</a></li>
           <li><a href="#services">Услуги</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#eco">Ecodorogi</a></li>
           <li><a href="#sport">Спорт</a></li>
           <li><a href="#contact">Контакты</a></li>
@@ -205,10 +207,24 @@ export default function Dev() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section id="reviews" className={s.sectionCard}>
+        <div className={`${s.sectionHeader} reveal`}>
+          <span className={s.sectionNum}>04</span>
+          <h2 className={s.sectionTitle}>Отзывы участников</h2>
+        </div>
+        <div className="reveal">
+          <Reviews />
+          <a href="/venues" className={s.serviceLink}>
+            Площадки для встреч и ретритов →
+          </a>
+        </div>
+      </section>
+
       {/* ECO PROJECT */}
       <section id="eco" className={s.sectionEco}>
         <div className={`${s.sectionHeader} ${s.sectionHeaderEco} reveal`}>
-          <span className={s.sectionNum}>04</span>
+          <span className={s.sectionNum}>05</span>
           <h2 className={s.sectionTitle}>Проект Ecodorogi.ru</h2>
         </div>
         <div className={s.ecoInner}>
@@ -225,8 +241,7 @@ export default function Dev() {
             </h3>
             <p className={s.ecoText}>
               Мой главный проект — <strong>«Природные дороги»</strong>: создание сети доступных
-              маршрутов вблизи городов. Реализуем совместно с мэрами городов,
-              региональными министерствами и федеральными структурами.
+              маршрутов вблизи городов. Реализуем совместно с государством.
             </p>
             <div className={s.ecoLinks}>
               <a href="https://ecodorogi.ru" target="_blank" rel="noreferrer" className={s.ecoLink}>ecodorogi.ru →</a>
@@ -237,7 +252,7 @@ export default function Dev() {
             {[
               { title: "Миссия", text: "Сеть природных дорог вблизи городов — доступных, безопасных и живых" },
               { title: "Флагманский проект", text: "«Дорога в Лавру» — маршрут к Троице-Сергиевой лавре в Сергиевом Посаде" },
-              { title: "GR-опыт", text: "Реализация с участием мэров, региональных министерств и федеральных структур" },
+              { title: "GR-опыт", text: "Реализация проекта совместно с государством" },
             ].map((f) => (
               <div key={f.title} className={s.ecoFeature}>
                 <div className={s.ecoFeatureTitle}>{f.title}</div>
@@ -251,7 +266,7 @@ export default function Dev() {
       {/* SPORT */}
       <section id="sport" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>05</span>
+          <span className={s.sectionNum}>06</span>
           <h2 className={s.sectionTitle}>Спорт</h2>
         </div>
         <div className={s.sportInner}>
@@ -297,7 +312,7 @@ export default function Dev() {
       {/* CONTACT */}
       <section id="contact" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>06</span>
+          <span className={s.sectionNum}>07</span>
           <h2 className={s.sectionTitle}>Контакты</h2>
         </div>
         <div className={s.contactInner}>
