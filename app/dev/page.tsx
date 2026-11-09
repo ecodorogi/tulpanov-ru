@@ -33,6 +33,7 @@ export default function Dev() {
           <li><a href="#services">Услуги</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#eco">Ecodorogi</a></li>
+          <li><a href="#projects">Проекты</a></li>
           <li><a href="#sport">Спорт</a></li>
           <li><a href="#contact">Контакты</a></li>
         </ul>
@@ -213,6 +214,11 @@ export default function Dev() {
           <span className={s.sectionNum}>04</span>
           <h2 className={s.sectionTitle}>Отзывы участников</h2>
         </div>
+        <blockquote className={`${s.quote} reveal`}>
+          «Думай не о тех верных, которые восхваляют твои слова, а о тех,
+          кто доброжелательно обличает твои недостатки»
+          <cite>— Сократ</cite>
+        </blockquote>
         <div className="reveal">
           <Reviews />
           <a href="/venues" className={s.serviceLink}>
@@ -263,10 +269,38 @@ export default function Dev() {
         </div>
       </section>
 
+      {/* PROJECTS */}
+      <section id="projects" className={s.section}>
+        <div className={`${s.sectionHeader} reveal`}>
+          <span className={s.sectionNum}>06</span>
+          <h2 className={s.sectionTitle}>Проекты</h2>
+        </div>
+        <div className={`${s.servicesGrid} ${s.projectsGrid}`}>
+          <div className={`${s.serviceCard} reveal`}>
+            <span className={s.serviceNum}>CEO · 2021–2025</span>
+            <h3 className={s.serviceName}>Кути Катай</h3>
+            <p className={s.serviceDesc}>
+              Лидер рынка проката и аттракционов в парках Москвы и области.
+            </p>
+            <a href="https://kutikatai.ru" target="_blank" rel="noreferrer" className={s.serviceLink}>
+              kutikatai.ru →
+            </a>
+          </div>
+          <div className={`${s.serviceCard} reveal`}>
+            <span className={s.serviceNum}>Экзит → Garmin</span>
+            <h3 className={s.serviceName}>Watchsport.ru</h3>
+            <p className={s.serviceDesc}>
+              B2B/B2C-дистрибуция умных устройств в России и Германии.
+              Основатель и CEO. Продал бренд корпорации Garmin в 2021 году.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* SPORT */}
       <section id="sport" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>06</span>
+          <span className={s.sectionNum}>07</span>
           <h2 className={s.sectionTitle}>Спорт</h2>
         </div>
         <div className={s.sportInner}>
@@ -312,7 +346,7 @@ export default function Dev() {
       {/* CONTACT */}
       <section id="contact" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>07</span>
+          <span className={s.sectionNum}>08</span>
           <h2 className={s.sectionTitle}>Контакты</h2>
         </div>
         <div className={s.contactInner}>

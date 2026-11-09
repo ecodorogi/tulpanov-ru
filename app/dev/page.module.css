@@ -365,6 +365,33 @@
 
 .serviceLink:hover { opacity: 0.6; }
 
+/* ── QUOTE ── */
+.quote {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 760px;
+  margin-bottom: 48px;
+  padding-left: 28px;
+  border-left: 2px solid var(--accent);
+}
+
+.quote cite {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── PROJECTS ── */
+.projectsGrid { grid-template-columns: repeat(2, 1fr); }
+
 /* ── ECO ── */
 .sectionEco {
   padding: 100px 60px;
@@ -630,7 +657,8 @@
   .sportInner,
   .contactInner { grid-template-columns: 1fr; gap: 40px; }
 
-  .servicesGrid { grid-template-columns: 1fr; }
+  .servicesGrid,
+  .projectsGrid { grid-template-columns: 1fr; }
 
   .sportPhotos { grid-template-columns: 1fr 1fr; }
   .sportPhoto { height: 160px; }
