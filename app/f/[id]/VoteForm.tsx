@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { submitVote, type VoteResult } from "../actions";
 import s from "../forum.module.css";
 
-type Level = { name: string; year: string; text: string };
+type Level = { name: string; year: string; text: string; note: string };
 
 const MESSAGES: Record<Exclude<VoteResult, "ok">, string> = {
   closed: "Опрос уже закрыт.",
@@ -57,6 +57,7 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
               </div>
             </div>
             <p className={s.levelText}>{l.text}</p>
+            <p className={s.levelNote}>{l.note}</p>
             <input
               type="range"
               min={0}

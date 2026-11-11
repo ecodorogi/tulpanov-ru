@@ -339,3 +339,89 @@
   .barRow .barTrack { grid-column: 1 / -1; grid-row: 2; }
   .table th:nth-child(3), .table td:nth-child(3) { display: none; }
 }
+
+/* ── Справка про уровни ── */
+.levelNote {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.6;
+  margin: 0 0 6px 36px;
+}
+
+.info {
+  border: 1px solid var(--line);
+  background: var(--card);
+  margin-bottom: 32px;
+}
+
+.info summary {
+  padding: 16px 20px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.info[open] summary { border-bottom: 1px solid var(--line); }
+
+.infoTitle {
+  font-size: 24px;
+  margin: 28px 20px 12px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 0 20px;
+}
+
+.infoTable {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.infoTable th,
+.infoTable td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  vertical-align: top;
+  text-align: left;
+  background: var(--bg);
+}
+
+.infoTable thead th {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.infoTable tbody th {
+  font-weight: 500;
+  width: 22%;
+}
+
+.infoTable tbody th span {
+  display: block;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.needs { font-weight: 500; }
+
+.source {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 16px 20px 20px;
+}
+
+@media (max-width: 600px) {
+  .levelNote { margin-left: 0; }
+  .tableWrap { margin: 0 12px; }
+  .infoTitle { margin: 24px 12px 12px; }
+  .source { margin: 16px 12px 16px; }
+}

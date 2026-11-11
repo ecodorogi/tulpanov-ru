@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { getPoll, isOpen, LEVELS } from "@/lib/forumPolls";
+import ForumInfo from "./ForumInfo";
 import VoteForm from "./VoteForm";
 import s from "../forum.module.css";
 
@@ -32,7 +33,9 @@ export default async function PollPage({ params }: { params: Promise<{ id: strin
             Распределите 100% между уровнями так, как вы ощущаете форум сейчас.
             Например: 70% — «Интересы» и 30% — «Решения». Ответ анонимный:
             не сохраняется ни имя, ни контакты, а итоги видит только модератор.
+            Описания уровней — материалы Академии Модерации.
           </p>
+          <ForumInfo />
           <VoteForm id={id} levels={LEVELS.map((l) => ({ ...l }))} />
         </>
       )}
