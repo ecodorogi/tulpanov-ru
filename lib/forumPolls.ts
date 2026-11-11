@@ -26,7 +26,7 @@ export type Poll = {
 
 export type Answer = { shares: number[]; at: string };
 
-const DATA_DIR = process.env.FORUM_POLLS_DIR || path.join(process.cwd(), "..", "tulpanov-ru-data", "forum-polls");
+const DATA_DIR = process.env.FORUM_POLLS_DIR || path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "tulpanov-ru-data", "forum-polls");
 const MAX_ANSWERS = 300;
 
 const pollDir = (id: string) => path.join(DATA_DIR, id);
