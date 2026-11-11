@@ -90,11 +90,11 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
             <div style={{ width: `${total}%` }} />
           </div>
           <span>
-            {left === 0 ? "Распределено 100%" : `Осталось распределить: ${left}%`}
+            {left === 0 ? "Распределено 100%" : `Осталось: ${left}%`}
           </span>
         </div>
         <button type="button" className={s.submit} disabled={left !== 0 || pending} onClick={submit}>
-          {pending ? "Отправляю…" : "Отправить анонимно"}
+          {pending ? "Отправляю…" : <>Отправить<span className={s.wide}> анонимно</span></>}
         </button>
         {result && <p className={s.error}>{MESSAGES[result]}</p>}
       </div>

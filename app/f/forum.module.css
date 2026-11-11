@@ -337,6 +337,19 @@
 
 @media (max-width: 600px) {
   .levelText { margin-left: 0; }
+  .page { padding: 40px 16px 120px; }
+  .level { padding: 16px 14px 12px; }
+  .levelHead { gap: 10px; }
+  .levelNum { font-size: 22px; min-width: 14px; }
+  .levelName { font-size: 20px; }
+  .levelYear { letter-spacing: 0.06em; }
+  .stepper { gap: 2px; }
+  .stepper button { width: 34px; height: 34px; }
+  .value { min-width: 44px; }
+  .footerBar { flex-wrap: nowrap; gap: 12px; padding: 10px 0 12px; margin-top: 16px; }
+  .total { min-width: 0; }
+  .submit { padding: 12px 16px; letter-spacing: 0.1em; white-space: nowrap; }
+  .wide { display: none; }
   .range { width: 100%; margin-left: 0; }
   .barRow { grid-template-columns: 1fr 48px; }
   .barRow .barTrack { grid-column: 1 / -1; grid-row: 2; }
