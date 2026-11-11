@@ -7,7 +7,7 @@ export default function Done() {
       <p className={s.doneTitle}>Принято!</p>
       <p className={s.doneText}>
         Кто бы что ни поставил, вы точно на уровне «Совместное заполнение опросов».
-        А это уже не первый год.
+        Модератор гордится каждым из вас.
       </p>
       <a href="/" className={s.home}>← tulpanov.ru</a>
     </div>
