@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ADMIN_PATH, isAdmin } from "@/lib/adminAuth";
 import { getAnswers, isOpen, listPolls } from "@/lib/forumPolls";
-import { isAdmin } from "./auth";
-import { create, login, logout } from "./actions";
-import s from "../f/forum.module.css";
+import { create } from "./actions";
+import s from "../../f/forum.module.css";
 
 export const metadata: Metadata = {
   title: "Опросы форумов",
@@ -13,25 +13,8 @@ export const metadata: Metadata = {
 const fmt = (iso: string) =>
   new Date(iso).toLocaleString("ru-RU", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Moscow" });
 
-export default async function AdminPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  const { error } = await searchParams;
-
-  if (!(await isAdmin())) {
-    return (
-      <main className={s.page}>
-        <h1 className={s.title}>Опросы форумов</h1>
-        <form action={login} className={s.form}>
-          <label className={s.field}>
-            Ключ доступа
-            <input name="key" type="password" autoComplete="current-password" required />
-          </label>
-          <button className={s.submit}>Войти</button>
-        </form>
-        {error && <p className={s.error}>Неверный ключ.</p>}
-      </main>
-    );
-  }
-
+export default async function ForumPollsPage() {
+  if (!(await isAdmin())) return null;
   const polls = await listPolls();
   const counts = await Promise.all(polls.map((p) => getAnswers(p.id).then((a) => a.length)));
 
@@ -72,7 +55,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           <tbody>
             {polls.map((p, i) => (
               <tr key={p.id}>
-                <td><Link href={`/forum-admin/${p.id}`}>{p.title}</Link></td>
+                <td><Link href={`${ADMIN_PATH}/forum/${p.id}`}>{p.title}</Link></td>
                 <td>{counts[i]}</td>
                 <td>{fmt(p.createdAt)}</td>
                 <td className={`${s.status} ${isOpen(p) ? s.statusOpen : ""}`}>
@@ -83,10 +66,6 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           </tbody>
         </table>
       )}
-
-      <form action={logout} className={s.actions}>
-        <button className={s.small}>Выйти</button>
-      </form>
     </main>
   );
 }

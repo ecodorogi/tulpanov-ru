@@ -117,17 +117,3 @@ export function summarize(answers: Answer[]) {
   return { n, avg, groupLevel, spread, personal };
 }
 
-// Вход в админку: один ключ из env, в cookie лежит только его HMAC.
-export function adminToken() {
-  const key = process.env.FORUM_ADMIN_KEY;
-  if (!key) return null;
-  return crypto.createHmac("sha256", key).update("forum-admin").digest("base64url");
-}
-
-export function checkAdminKey(input: string) {
-  const key = process.env.FORUM_ADMIN_KEY;
-  if (!key) return false;
-  const a = Buffer.from(input);
-  const b = Buffer.from(key);
-  return a.length === b.length && crypto.timingSafeEqual(a, b);
-}

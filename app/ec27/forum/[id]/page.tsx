@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { ADMIN_PATH, isAdmin } from "@/lib/adminAuth";
 import { getAnswers, getPoll, isOpen, LEVELS, summarize } from "@/lib/forumPolls";
-import { isAdmin } from "../auth";
 import { close, extend, remove } from "../actions";
 import CopyLink from "../CopyLink";
-import s from "../../f/forum.module.css";
+import s from "../../../f/forum.module.css";
 
 export const metadata: Metadata = {
   title: "Итоги опроса",
@@ -22,7 +22,7 @@ export default async function ResultsPage({
   params: Promise<{ id: string }>;
   searchParams: Promise<{ new?: string }>;
 }) {
-  if (!(await isAdmin())) redirect("/forum-admin");
+  if (!(await isAdmin())) return null;
   const { id } = await params;
   const { new: isNew } = await searchParams;
   const poll = await getPoll(id);
@@ -42,7 +42,7 @@ export default async function ResultsPage({
   return (
     <main className={s.page}>
       <p className={s.eyebrow}>
-        <Link href="/forum-admin">← Все опросы</Link>
+        <Link href={`${ADMIN_PATH}/forum`}>← Все опросы</Link>
       </p>
       <h1 className={s.title}>{poll.title}</h1>
 

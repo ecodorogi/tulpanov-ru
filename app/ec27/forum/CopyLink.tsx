@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import s from "../f/forum.module.css";
+import s from "../../f/forum.module.css";
 
 export default function CopyLink({ url }: { url: string }) {
   const [copied, setCopied] = useState(false);
