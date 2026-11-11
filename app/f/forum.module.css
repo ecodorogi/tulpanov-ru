@@ -1,0 +1,341 @@
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 24px 140px;
+  cursor: auto;
+}
+
+.page a,
+.page button,
+.page input { cursor: pointer; }
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.lead {
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.notice {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 24px;
+  color: var(--accent);
+  padding: 32px 0;
+}
+
+/* ── Уровни ── */
+.levels {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.level {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  padding: 20px 22px 16px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.levelActive {
+  border-color: var(--accent);
+  background: var(--card);
+}
+
+.levelHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.levelNum {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 28px;
+  color: var(--accent);
+  min-width: 20px;
+}
+
+.levelInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.levelName {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.levelYear {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.levelText {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 10px 0 6px 36px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepper button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.stepper button:hover { border-color: var(--accent); }
+
+.value {
+  min-width: 52px;
+  text-align: center;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.range {
+  width: calc(100% - 36px);
+  margin-left: 36px;
+  accent-color: var(--accent);
+}
+
+/* ── Нижняя панель с суммой ── */
+.footerBar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 24px;
+  padding: 16px 0 20px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.total {
+  flex: 1;
+  min-width: 200px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.totalBar {
+  height: 4px;
+  background: var(--line);
+  margin-bottom: 8px;
+}
+
+.totalBar div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+.submit {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.error {
+  width: 100%;
+  color: #A33A2A;
+  font-size: 13px;
+}
+
+/* ── Админка ── */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input,
+.field select {
+  font: inherit;
+  font-size: 15px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 11px 12px;
+  min-width: 220px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 8px 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.table td {
+  padding: 12px 8px 12px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.table a { color: var(--accent); }
+
+.status { font-size: 12px; color: var(--muted); }
+.statusOpen { color: var(--accent); }
+
+.linkBox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid var(--accent);
+  background: var(--card);
+  padding: 16px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.linkBox code { flex: 1; min-width: 200px; }
+
+.small {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+.small:hover { border-color: var(--accent); }
+
+.danger:hover { border-color: #A33A2A; color: #A33A2A; }
+
+.stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 32px 0 40px;
+}
+
+.statNum {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.statLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 200px 1fr 56px;
+  gap: 12px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.barTrack {
+  height: 14px;
+  background: var(--line);
+}
+
+.barFill {
+  height: 100%;
+  background: var(--accent);
+}
+
+.barValue {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+@media (max-width: 600px) {
+  .levelText { margin-left: 0; }
+  .range { width: 100%; margin-left: 0; }
+  .barRow { grid-template-columns: 1fr 48px; }
+  .barRow .barTrack { grid-column: 1 / -1; grid-row: 2; }
+  .table th:nth-child(3), .table td:nth-child(3) { display: none; }
+}
