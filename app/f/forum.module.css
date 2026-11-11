@@ -425,3 +425,50 @@
   .infoTitle { margin: 24px 12px 12px; }
   .source { margin: 16px 12px 16px; }
 }
+
+/* ── Комментарий ── */
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.comment em {
+  font-style: normal;
+  color: var(--muted);
+}
+
+.comment textarea {
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  resize: vertical;
+  cursor: text;
+}
+
+.comment textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.commentsTitle { margin-top: 48px; }
+
+.comments {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comments li {
+  border-left: 2px solid var(--accent);
+  background: var(--card);
+  padding: 12px 16px;
+  white-space: pre-wrap;
+  font-size: 14px;
+}

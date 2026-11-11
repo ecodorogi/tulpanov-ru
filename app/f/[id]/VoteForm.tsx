@@ -15,6 +15,7 @@ const MESSAGES: Record<Exclude<VoteResult, "ok">, string> = {
 
 export default function VoteForm({ id, levels }: { id: string; levels: Level[] }) {
   const [shares, setShares] = useState<number[]>(() => levels.map(() => 0));
+  const [comment, setComment] = useState("");
   const [result, setResult] = useState<VoteResult | null>(null);
   const [pending, startTransition] = useTransition();
 
@@ -32,7 +33,7 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
 
   const submit = () =>
     startTransition(async () => {
-      setResult(await submitVote(id, shares));
+      setResult(await submitVote(id, shares, comment));
     });
 
   if (result === "ok") {
@@ -71,6 +72,17 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
           </li>
         ))}
       </ol>
+
+      <label className={s.comment}>
+        <span>Комментарий для модератора <em>— необязательно</em></span>
+        <textarea
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          maxLength={1000}
+          rows={4}
+          placeholder="Если хотите что-то добавить — напишите здесь. Комментарий тоже анонимный."
+        />
+      </label>
 
       <div className={s.footerBar}>
         <div className={s.total}>

@@ -30,6 +30,11 @@ export default async function ResultsPage({
 
   const answers = await getAnswers(id);
   const { n, avg, groupLevel, spread, personal } = summarize(answers);
+  const comments = answers
+    .flatMap((a) => (a.comment ? [a.comment] : []))
+    .map((c) => ({ c, k: Math.random() }))
+    .sort((x, y) => x.k - y.k)
+    .map(({ c }) => c);
   const url = `https://tulpanov.ru/f/${poll.id}`;
   const open = isOpen(poll);
   const nearest = LEVELS[Math.min(LEVELS.length - 1, Math.max(0, Math.round(groupLevel) - 1))];
@@ -106,6 +111,16 @@ export default async function ResultsPage({
                 ))}
             </tbody>
           </table>
+
+          {comments.length > 0 && (
+            <>
+              <h2 className={`${s.h2} ${s.commentsTitle}`}>Комментарии ({comments.length})</h2>
+              <p className={s.lead}>Отдельно от ответов, в случайном порядке — чтобы комментарий нельзя было связать с распределением.</p>
+              <ul className={s.comments}>
+                {comments.map((c, i) => <li key={i}>{c}</li>)}
+              </ul>
+            </>
+          )}
         </>
       )}
 

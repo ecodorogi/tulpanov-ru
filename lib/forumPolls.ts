@@ -4,7 +4,7 @@ import crypto from "crypto";
 
 // Анонимные опросы «на каком уровне сейчас форум».
 // Каждый опрос — папка в DATA_DIR: meta.json + answers.jsonl (одна строка — один ответ).
-// В ответе хранятся только проценты по уровням и время, никаких IP, имён и cookie.
+// В ответе хранятся только проценты по уровням, дата и необязательный комментарий — никаких IP, имён и cookie.
 
 export { LEVELS } from "./forumLevels";
 import { LEVELS } from "./forumLevels";
@@ -17,10 +17,11 @@ export type Poll = {
   closed?: boolean;
 };
 
-export type Answer = { shares: number[]; at: string };
+export type Answer = { shares: number[]; at: string; comment?: string };
 
 const DATA_DIR = process.env.FORUM_POLLS_DIR || path.join(/*turbopackIgnore: true*/ process.cwd(), "..", "tulpanov-ru-data", "forum-polls");
 const MAX_ANSWERS = 300;
+export const MAX_COMMENT = 1000;
 
 const pollDir = (id: string) => path.join(DATA_DIR, id);
 const isValidId = (id: string) => /^[A-Za-z0-9_-]{16,40}$/.test(id);
@@ -93,12 +94,14 @@ export function validShares(shares: unknown): shares is number[] {
   );
 }
 
-export async function addAnswer(id: string, shares: number[]): Promise<"ok" | "closed" | "full"> {
+export async function addAnswer(id: string, shares: number[], comment = ""): Promise<"ok" | "closed" | "full"> {
   const poll = await getPoll(id);
   if (!poll || !isOpen(poll)) return "closed";
   if ((await getAnswers(id)).length >= MAX_ANSWERS) return "full";
   // Время округляем до дня, чтобы по нему нельзя было угадать, кто когда отвечал.
   const answer: Answer = { shares, at: new Date().toISOString().slice(0, 10) };
+  const text = comment.trim().slice(0, MAX_COMMENT);
+  if (text) answer.comment = text;
   await fs.appendFile(path.join(pollDir(id), "answers.jsonl"), JSON.stringify(answer) + "\n");
   return "ok";
 }
