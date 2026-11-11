@@ -24,10 +24,11 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
   const left = 100 - total;
 
   // Значение уровня не может уйти за остаток: сумма никогда не превысит 100.
-  const set = (i: number, value: number) => {
+  // Новое значение считается от актуального состояния: быстрые нажатия «+» не теряются.
+  const set = (i: number, value: (current: number) => number) => {
     setShares((prev) => {
       const others = prev.reduce((a, b, j) => (j === i ? a : a + b), 0);
-      const v = Math.max(0, Math.min(100 - others, Math.round(value)));
+      const v = Math.max(0, Math.min(100 - others, Math.round(value(prev[i]))));
       return prev.map((x, j) => (j === i ? v : x));
     });
   };
@@ -52,9 +53,9 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
                 <span className={s.levelYear}>обычно {l.year}</span>
               </div>
               <div className={s.stepper}>
-                <button type="button" onClick={() => set(i, shares[i] - 10)} aria-label={`Уменьшить «${l.name}»`}>−</button>
+                <button type="button" onClick={() => set(i, (v) => v - 10)} aria-label={`Уменьшить «${l.name}»`}>−</button>
                 <span className={s.value}>{shares[i]}%</span>
-                <button type="button" onClick={() => set(i, shares[i] + 10)} aria-label={`Увеличить «${l.name}»`}>+</button>
+                <button type="button" onClick={() => set(i, (v) => v + 10)} aria-label={`Увеличить «${l.name}»`}>+</button>
               </div>
             </div>
             <p className={s.levelText}>{l.text}</p>
@@ -65,7 +66,7 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
               max={100}
               step={5}
               value={shares[i]}
-              onChange={(e) => set(i, Number(e.target.value))}
+              onChange={(e) => { const v = Number(e.target.value); set(i, () => v); }}
               className={s.range}
               aria-label={`Доля уровня «${l.name}»`}
             />
