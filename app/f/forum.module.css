@@ -527,3 +527,19 @@
     margin-bottom: 2px;
   }
 }
+
+.home {
+  display: inline-block;
+  margin-bottom: 40px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.home:hover { border-bottom-color: var(--accent); }
+
+@media (max-width: 600px) {
+  .home { margin-bottom: 28px; }
+}

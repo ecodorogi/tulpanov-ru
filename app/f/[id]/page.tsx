@@ -20,6 +20,7 @@ export default async function PollPage({ params }: { params: Promise<{ id: strin
 
   return (
     <main className={s.page}>
+      <a href="/" className={s.home}>← Александр Тюльпанов · tulpanov.ru</a>
       <p className={s.eyebrow}>Анонимный опрос · {poll.title}</p>
       <h1 className={s.title}>На каком уровне сейчас наш форум?</h1>
 
