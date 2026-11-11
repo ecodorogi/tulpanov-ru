@@ -13,7 +13,7 @@ export default function Home() {
         priority
       />
       <h1 className={styles.name}>Александр Тюльпанов</h1>
-      <p className={styles.role}>Предприниматель · модератор бизнес-форумов</p>
+      <p className={styles.role}>Предприниматель · ретрит-тренер и модератор бизнес-форумов</p>
       <p className={styles.status}>Сайт готовится к запуску</p>
       <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.link}>
         Написать в Telegram →
