@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { getPoll, isOpen, LEVELS } from "@/lib/forumPolls";
+import Done from "./Done";
 import ForumInfo from "./ForumInfo";
 import VoteForm from "./VoteForm";
 import s from "../forum.module.css";
@@ -27,7 +28,7 @@ export default async function PollPage({ params }: { params: Promise<{ id: strin
       {!isOpen(poll) ? (
         <p className={s.notice}>Опрос закрыт. Спасибо всем, кто ответил.</p>
       ) : voted ? (
-        <p className={s.notice}>Ваш ответ уже учтён. Спасибо!</p>
+        <Done />
       ) : (
         <>
           <p className={s.lead}>

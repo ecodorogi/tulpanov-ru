@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { submitVote, type VoteResult } from "../actions";
+import Done from "./Done";
 import s from "../forum.module.css";
 
 type Level = { name: string; year: string; text: string; note: string };
@@ -34,11 +35,10 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
   const submit = () =>
     startTransition(async () => {
       setResult(await submitVote(id, shares, comment));
+      window.scrollTo({ top: 0 });
     });
 
-  if (result === "ok") {
-    return <p className={s.notice}>Спасибо! Ответ анонимно учтён.</p>;
-  }
+  if (result === "ok") return <Done />;
 
   return (
     <div>
