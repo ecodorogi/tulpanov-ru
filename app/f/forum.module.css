@@ -488,3 +488,42 @@
   white-space: pre-wrap;
   font-size: 14px;
 }
+
+/* На телефоне строки таблиц — отдельные карточки, без горизонтальной прокрутки. */
+@media (max-width: 600px) {
+  .tableWrap { overflow: visible; }
+  .infoTable { min-width: 0; }
+  .infoTable thead { display: none; }
+
+  .infoTable tr {
+    display: block;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    margin-bottom: 10px;
+  }
+
+  .infoTable th,
+  .infoTable td {
+    display: block;
+    border: none;
+    padding: 8px 12px;
+  }
+
+  .infoTable tbody th {
+    width: auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .infoTable tbody th span { display: inline; margin-left: 8px; }
+
+  .infoTable td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+}

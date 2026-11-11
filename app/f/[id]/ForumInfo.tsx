@@ -39,9 +39,9 @@ export default function ForumInfo() {
                   {st.stage}
                   <span>{st.year}</span>
                 </th>
-                <td>{st.opportunities}</td>
-                <td>{st.challenges}</td>
-                <td className={s.needs}>{st.needs}</td>
+                <td data-label="Возможности">{st.opportunities}</td>
+                <td data-label="Вызовы">{st.challenges}</td>
+                <td className={s.needs} data-label="Потребности">{st.needs}</td>
               </tr>
             ))}
           </tbody>
