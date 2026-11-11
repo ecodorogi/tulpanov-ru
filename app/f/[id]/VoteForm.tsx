@@ -74,13 +74,13 @@ export default function VoteForm({ id, levels }: { id: string; levels: Level[] }
       </ol>
 
       <label className={s.comment}>
-        <span>Комментарий для модератора <em>— необязательно</em></span>
+        <span>Комментарий для модератора <em>- необязательно</em></span>
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           maxLength={1000}
           rows={4}
-          placeholder="Если хотите что-то добавить — напишите здесь. Комментарий тоже анонимный."
+          placeholder="Если хотите что-то добавить - напишите здесь. Комментарий тоже анонимный."
         />
       </label>
 

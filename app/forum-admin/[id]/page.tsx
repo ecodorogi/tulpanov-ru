@@ -46,7 +46,7 @@ export default async function ResultsPage({
       </p>
       <h1 className={s.title}>{poll.title}</h1>
 
-      {isNew && <p className={s.lead}>Ссылка готова — отправьте её в чат форум-группы.</p>}
+      {isNew && <p className={s.lead}>Ссылка готова - отправьте её в чат форум-группы.</p>}
       <div className={s.linkBox}>
         <code>{url}</code>
         <CopyLink url={url} />
@@ -115,7 +115,7 @@ export default async function ResultsPage({
           {comments.length > 0 && (
             <>
               <h2 className={`${s.h2} ${s.commentsTitle}`}>Комментарии ({comments.length})</h2>
-              <p className={s.lead}>Отдельно от ответов, в случайном порядке — чтобы комментарий нельзя было связать с распределением.</p>
+              <p className={s.lead}>Отдельно от ответов, в случайном порядке - чтобы комментарий нельзя было связать с распределением.</p>
               <ul className={s.comments}>
                 {comments.map((c, i) => <li key={i}>{c}</li>)}
               </ul>

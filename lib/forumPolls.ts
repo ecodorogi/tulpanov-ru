@@ -3,8 +3,8 @@ import path from "path";
 import crypto from "crypto";
 
 // Анонимные опросы «на каком уровне сейчас форум».
-// Каждый опрос — папка в DATA_DIR: meta.json + answers.jsonl (одна строка — один ответ).
-// В ответе хранятся только проценты по уровням, дата и необязательный комментарий — никаких IP, имён и cookie.
+// Каждый опрос - папка в DATA_DIR: meta.json + answers.jsonl (одна строка - один ответ).
+// В ответе хранятся только проценты по уровням, дата и необязательный комментарий - никаких IP, имён и cookie.
 
 export { LEVELS } from "./forumLevels";
 import { LEVELS } from "./forumLevels";
