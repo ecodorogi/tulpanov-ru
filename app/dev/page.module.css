@@ -19,11 +19,14 @@
   letter-spacing: 0.06em;
   text-decoration: none;
   color: var(--ink);
+  white-space: nowrap;
+  margin-right: 24px;
 }
 
 .navLinks {
   display: flex;
-  gap: 36px;
+  gap: clamp(14px, 2vw, 36px);
+  white-space: nowrap;
   list-style: none;
 }
 
