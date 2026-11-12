@@ -125,7 +125,7 @@
   width: 100%;
   height: 420px;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 12%;
   display: block;
   filter: grayscale(8%);
   transition: filter 0.4s;
