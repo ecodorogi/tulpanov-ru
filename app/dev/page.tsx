@@ -5,6 +5,79 @@ import { useEffect } from "react";
 import Reviews from "../components/Reviews";
 import s from "./page.module.css";
 
+// Бесплатная встреча-знакомство: главная кнопка сайта.
+const MEET_URL =
+  "https://t.me/tulpanov?text=" +
+  encodeURIComponent("Здравствуйте! Хочу записаться на встречу-знакомство (30 минут).");
+
+const CLUBS = ["Атланты", "Клуб Первых", "Эквиум", "Основатели", "Эталон"];
+
+const SITUATIONS = [
+  { text: "Форум буксует: встречи стали формальными, участники приходят «отметиться».", to: "#service-forum", service: "Модерация форум-групп" },
+  { text: "В группе скрытое напряжение или конфликт, о котором не говорят вслух.", to: "#service-retreat", service: "Форум-ретрит" },
+  { text: "Группе нужен перезапуск: новые участники, новые правила, общая цель на год.", to: "#service-retreat", service: "Форум-ретрит" },
+  { text: "Партнёры перестали договариваться, важные решения откладываются.", to: "#service-director", service: "Независимый директор" },
+  { text: "Собственник один на один с большим решением: сделка, смена руководителя, выход из операционки.", to: "#service-director", service: "Независимый директор" },
+  { text: "Бизнес вырос, а управление осталось прежним - нужен честный взгляд со стороны.", to: "#service-director", service: "Независимый директор" },
+];
+
+type Service = {
+  id: string;
+  num: string;
+  name: string;
+  rows: [string, string][];
+  steps?: string[];
+  cta: string;
+  msg: string;
+};
+
+const SERVICES: Service[] = [
+  {
+    id: "service-retreat",
+    num: "01",
+    name: "Форум-ретриты",
+    rows: [
+      ["Для кого", "Форум-группы бизнес-клубов и команды собственников."],
+      ["С чем работаю", "Напряжение и скрытые конфликты в группе, потеря доверия, перезапуск группы, общая цель на год."],
+      ["Как проходит", "Созвоны и онлайн-диагностика заранее, затем 1–2 дня на выезде на природе: структурированный диалог и работа с групповой динамикой."],
+      ["Результат", "Группа снова доверяет друг другу, договорённости на год и личные шаги каждого участника."],
+    ],
+    cta: "Обсудить ретрит →",
+    msg: "Здравствуйте! Хочу обсудить ретрит для форум-группы.",
+  },
+  {
+    id: "service-forum",
+    num: "02",
+    name: "Модерация форум-групп",
+    rows: [
+      ["Для кого", "Форум-группы предпринимателей в бизнес-клубах: Атланты, Клуб Первых, Эквиум, Основатели, Эталон и другие."],
+      ["С чем работаю", "Встречи стали формальными, нарушаются правила и конфиденциальность, участники перестали делиться главным."],
+      ["Как проходит", "Регулярные встречи по стандартам Академии Модерации: подготовка, ведение, обратная связь группе."],
+      ["Результат", "Форум, на который хочется приходить: каждый участник слышит и слышан."],
+    ],
+    cta: "Обсудить модерацию →",
+    msg: "Здравствуйте! Хочу обсудить модерацию форум-группы.",
+  },
+  {
+    id: "service-director",
+    num: "03",
+    name: "Независимый директор",
+    rows: [
+      ["Для кого", "Собственники бизнеса, которым нужен взгляд со стороны без интересов внутри компании."],
+      ["С чем работаю", "Стратегия, команда и руководители, разногласия партнёров, подготовка к сделкам, сложные решения."],
+      ["Результат", "Решения принимаются вовремя, у собственника есть опора и честная обратная связь."],
+    ],
+    steps: [
+      "Встреча-знакомство - 30 минут, бесплатно",
+      "Стартовая сессия: цели собственника и бизнеса",
+      "Регулярные встречи один на один",
+      "Связь между встречами по срочным вопросам",
+    ],
+    cta: "Обсудить →",
+    msg: "Здравствуйте! Хочу обсудить независимого директора.",
+  },
+];
+
 export default function Dev() {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
@@ -30,6 +103,7 @@ export default function Dev() {
         <a className={s.navLogo} href="#">Тюльпанов А.С.</a>
         <ul className={s.navLinks}>
           <li><a href="#about">Обо мне</a></li>
+          <li><a href="#tasks">Задачи</a></li>
           <li><a href="#services">Услуги</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#eco">Ecodorogi</a></li>
@@ -52,7 +126,9 @@ export default function Dev() {
             С 2021 года работаю с форум-группами в бизнес-клубах России:
             Атланты, Клуб Первых, Эквиум, Основатели и других.
           </p>
-          <a href="#contact" className={s.heroCta}>Связаться →</a>
+          <a href={MEET_URL} target="_blank" rel="noreferrer" className={s.heroCta}>
+            Встреча-знакомство · 30 минут, бесплатно →
+          </a>
         </div>
         <div className={s.heroRight}>
           <div className={s.heroPhotoWrap}>
@@ -89,6 +165,14 @@ export default function Dev() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* CLUBS */}
+      <section className={s.clubs} aria-label="Бизнес-клубы">
+        <span className={s.clubsLabel}>Работаю с клубами</span>
+        <ul className={s.clubsList}>
+          {CLUBS.map((c) => <li key={c}>{c}</li>)}
+        </ul>
       </section>
 
       {/* ABOUT */}
@@ -153,61 +237,72 @@ export default function Dev() {
         </div>
       </section>
 
+      {/* SITUATIONS */}
+      <section id="tasks" className={s.sectionCard}>
+        <div className={`${s.sectionHeader} reveal`}>
+          <span className={s.sectionNum}>03</span>
+          <h2 className={s.sectionTitle}>С чем ко мне приходят</h2>
+        </div>
+        <div className={s.situations}>
+          {SITUATIONS.map((x) => (
+            <a key={x.text} href={x.to} className={`${s.situation} reveal`}>
+              <span className={s.situationText}>{x.text}</span>
+              <span className={s.situationService}>{x.service} →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="services" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>03</span>
+          <span className={s.sectionNum}>04</span>
           <h2 className={s.sectionTitle}>Услуги</h2>
         </div>
         <div className={s.servicesGrid}>
-          <div className={`${s.serviceCard} reveal`}>
-            <span className={s.serviceNum}>01</span>
-            <h3 className={s.serviceName}>Форум-ретриты</h3>
-            <p className={s.serviceDesc}>
-              Выездные мероприятия для бизнес-клубов и команд. Природная среда,
-              структурированный диалог, глубокая работа с групповой динамикой.
-              Результат: общая цель, снятие конфликтов, прорывные решения.
-            </p>
-            <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={s.serviceLink}>
-              Обсудить →
-            </a>
-          </div>
-          <div className={`${s.serviceCard} reveal`}>
-            <span className={s.serviceNum}>02</span>
-            <h3 className={s.serviceName}>Модерация форум-групп</h3>
-            <p className={s.serviceDesc}>
-              Веду форум-группы предпринимателей на регулярной основе: Атланты,
-              Клуб Первых, Эквиум, Основатели, Эталон и другие клубы.
-              Создаю среду, где каждый участник слышит и слышан.
-            </p>
-            <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={s.serviceLink}>
-              Обсудить →
-            </a>
-          </div>
-          <div className={`${s.serviceCard} reveal`}>
-            <span className={s.serviceNum}>03</span>
-            <h3 className={s.serviceName}>Независимый директор</h3>
-            <p className={s.serviceDesc}>
-              Взгляд со стороны для собственника бизнеса. Регулярные встречи
-              один на один: стратегия, команда, сложные решения, подготовка
-              к сделкам. Без интересов внутри компании - только задачи собственника.
-            </p>
-            <a
-              href="https://t.me/tulpanov?text=Хочу%20обсудить%20независимого%20директора"
-              target="_blank"
-              rel="noreferrer"
-              className={s.serviceLink}
-            >
-              Обсудить →
-            </a>
-          </div>
+          {SERVICES.map((x) => (
+            <div key={x.id} id={x.id} className={`${s.serviceCard} reveal`}>
+              <span className={s.serviceNum}>{x.num}</span>
+              <h3 className={s.serviceName}>{x.name}</h3>
+              <dl className={s.serviceRows}>
+                {x.rows.slice(0, 2).map(([k, v]) => (
+                  <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                ))}
+                {x.steps ? (
+                  <div>
+                    <dt>Как проходит</dt>
+                    <dd>
+                      <ol className={s.serviceSteps}>
+                        {x.steps.map((st) => <li key={st}>{st}</li>)}
+                      </ol>
+                    </dd>
+                  </div>
+                ) : null}
+                {x.rows.slice(2).map(([k, v]) => (
+                  <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                ))}
+              </dl>
+              <a
+                href={`https://t.me/tulpanov?text=${encodeURIComponent(x.msg)}`}
+                target="_blank"
+                rel="noreferrer"
+                className={s.serviceLink}
+              >
+                {x.cta}
+              </a>
+            </div>
+          ))}
         </div>
+        <p className={`${s.servicesNote} reveal`}>
+          Не знаете, что подходит? Начните со встречи-знакомства: 30 минут, бесплатно.{" "}
+          <a href={MEET_URL} target="_blank" rel="noreferrer">Записаться →</a>
+        </p>
       </section>
 
       {/* REVIEWS */}
       <section id="reviews" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>04</span>
+          <span className={s.sectionNum}>05</span>
           <h2 className={s.sectionTitle}>Отзывы участников</h2>
         </div>
         <blockquote className={`${s.quote} reveal`}>
@@ -226,7 +321,7 @@ export default function Dev() {
       {/* ECO PROJECT */}
       <section id="eco" className={s.sectionEco}>
         <div className={`${s.sectionHeader} ${s.sectionHeaderEco} reveal`}>
-          <span className={s.sectionNum}>05</span>
+          <span className={s.sectionNum}>06</span>
           <h2 className={s.sectionTitle}>Проект Ecodorogi.ru</h2>
         </div>
         <div className={s.ecoInner}>
@@ -268,7 +363,7 @@ export default function Dev() {
       {/* PROJECTS */}
       <section id="projects" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>06</span>
+          <span className={s.sectionNum}>07</span>
           <h2 className={s.sectionTitle}>Проекты</h2>
         </div>
         <div className={`${s.servicesGrid} ${s.projectsGrid}`}>
@@ -296,7 +391,7 @@ export default function Dev() {
       {/* SPORT */}
       <section id="sport" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>07</span>
+          <span className={s.sectionNum}>08</span>
           <h2 className={s.sectionTitle}>Спорт</h2>
         </div>
         <div className={s.sportInner}>
@@ -342,7 +437,7 @@ export default function Dev() {
       {/* CONTACT */}
       <section id="contact" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>08</span>
+          <span className={s.sectionNum}>09</span>
           <h2 className={s.sectionTitle}>Контакты</h2>
         </div>
         <div className={s.contactInner}>
@@ -355,6 +450,7 @@ export default function Dev() {
           </div>
           <div className={`${s.contactChannels} reveal`}>
             {[
+              { href: MEET_URL, label: "Знакомство", value: "30 минут, бесплатно" },
               { href: "https://t.me/tulpanov", label: "Telegram", value: "@tulpanov" },
               { href: "mailto:a.tulpanov@gmail.com", label: "Email", value: "a.tulpanov@gmail.com" },
               { href: "tel:+79161429848", label: "Телефон", value: "+7 916 142-98-48" },
