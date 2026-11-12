@@ -184,27 +184,6 @@ export default function Dev() {
               Обсудить →
             </a>
           </div>
-          <div className={`${s.serviceCard} reveal`}>
-            <span className={s.serviceNum}>03</span>
-            <h3 className={s.serviceName}>Стратегическая сессия</h3>
-            <p className={s.serviceDesc}>Один разговор, одна задача, план на 30 дней.</p>
-            <details className={s.serviceMore}>
-              <summary>Подробнее и стоимость</summary>
-              <div className={s.serviceMoreBody}>
-                <p><strong>Что это.</strong> 60 минут один на один. Приносите одну задачу: запуск, рост, команда, конфликт или выбор следующего шага.</p>
-                <p><strong>Стоимость.</strong> 30 000 ₽ за час. Первое знакомство — 20 минут бесплатно.</p>
-                <p><strong>Формат.</strong> Онлайн или очно в Москве.</p>
-              </div>
-            </details>
-            <a
-              href="https://t.me/tulpanov?text=Хочу%20записаться%20на%20стратегическую%20сессию"
-              target="_blank"
-              rel="noreferrer"
-              className={s.serviceLink}
-            >
-              Записаться →
-            </a>
-          </div>
         </div>
       </section>
 

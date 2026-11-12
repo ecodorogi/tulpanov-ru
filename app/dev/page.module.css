@@ -123,9 +123,9 @@
 
 .heroPhoto {
   width: 100%;
-  height: 320px;
+  height: 420px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
   display: block;
   filter: grayscale(8%);
   transition: filter 0.4s;
@@ -282,7 +282,7 @@
 /* ── SERVICES ── */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
