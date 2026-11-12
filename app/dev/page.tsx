@@ -71,16 +71,16 @@ export default function Dev() {
               <div className={s.statLabel}>Лет в бизнесе</div>
             </div>
             <div className={s.stat}>
-              <div className={s.statNum}>2021</div>
-              <div className={s.statLabel}>Старт модерации</div>
+              <div className={s.statNum}>2 000+</div>
+              <div className={s.statLabel}>Часов модерации и ретритов</div>
+            </div>
+            <div className={s.stat}>
+              <div className={s.statNum}>5 400+</div>
+              <div className={s.statLabel}>м - два восхождения в горы</div>
             </div>
             <div className={s.stat}>
               <div className={s.statNum}>109</div>
-              <div className={s.statLabel}>км — личный рекорд</div>
-            </div>
-            <div className={s.stat}>
-              <div className={s.statNum}>5+</div>
-              <div className={s.statLabel}>Бизнес-клубов РФ</div>
+              <div className={s.statLabel}>км - ультра-трейл</div>
             </div>
           </div>
           <div className={s.heroTags}>
