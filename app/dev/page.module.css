@@ -761,14 +761,15 @@
 
 .retreatsList {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
 }
 
 .retreatsList li {
+  flex: 1 1 200px;
   background: var(--bg);
   padding: 24px 22px;
   display: flex;
@@ -801,10 +802,6 @@
   white-space: nowrap;
 }
 
-@media (max-width: 1200px) {
-  .retreatsList { grid-template-columns: repeat(3, 1fr); }
-}
-
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   .nav { padding: 20px 28px; }
@@ -827,7 +824,6 @@
   .projectsGrid,
   .situations { grid-template-columns: 1fr; }
 
-  .retreatsList { grid-template-columns: 1fr; }
   .clubs { padding: 24px 28px; }
   .clubsList li { font-size: 19px; }
   .situation { padding: 24px 22px; }
