@@ -184,6 +184,23 @@ export default function Dev() {
               Обсудить →
             </a>
           </div>
+          <div className={`${s.serviceCard} reveal`}>
+            <span className={s.serviceNum}>03</span>
+            <h3 className={s.serviceName}>Независимый директор</h3>
+            <p className={s.serviceDesc}>
+              Взгляд со стороны для собственника бизнеса. Регулярные встречи
+              один на один: стратегия, команда, сложные решения, подготовка
+              к сделкам. Без интересов внутри компании - только задачи собственника.
+            </p>
+            <a
+              href="https://t.me/tulpanov?text=Хочу%20обсудить%20независимого%20директора"
+              target="_blank"
+              rel="noreferrer"
+              className={s.serviceLink}
+            >
+              Обсудить →
+            </a>
+          </div>
         </div>
       </section>
 
