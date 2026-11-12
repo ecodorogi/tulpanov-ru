@@ -732,6 +732,15 @@
   line-height: 1.7;
 }
 
+.servicePrice {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 24px;
+  color: var(--ink);
+}
+
 .serviceSteps {
   padding-left: 18px;
   display: flex;
