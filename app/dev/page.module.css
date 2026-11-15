@@ -274,7 +274,7 @@
 .certPreview {
   position: absolute;
   left: 0;
-  bottom: calc(100% + 12px);
+  top: calc(100% + 10px);
   z-index: 50;
   width: 340px;
   padding: 10px;
@@ -286,7 +286,7 @@
   gap: 8px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
+  transform: translateY(-6px);
   transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
   pointer-events: none;
 }
