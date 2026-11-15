@@ -160,7 +160,7 @@ export default function Dev() {
             </div>
             <div className={s.stat}>
               <div className={s.statNum}>2 000+</div>
-              <div className={s.statLabel}>Часов модерации и ретритов</div>
+              <div className={s.statLabel}>Часов модерации форумов и ретритов</div>
             </div>
             <div className={s.stat}>
               <div className={s.statNum}>5 400+ м</div>
