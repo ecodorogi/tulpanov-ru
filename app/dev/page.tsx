@@ -168,7 +168,7 @@ export default function Dev() {
             </div>
             <div className={s.stat}>
               <div className={s.statNum}>110 км</div>
-              <div className={s.statLabel}>Самая длинная ультра-гонка, и много гонок короче</div>
+              <div className={s.statLabel}>Самая длинная из многих ультра-гонок</div>
             </div>
           </div>
           <div className={s.heroTags}>
