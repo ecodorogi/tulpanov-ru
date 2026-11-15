@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import Reviews from "../components/Reviews";
 import s from "./page.module.css";
 
@@ -90,6 +90,20 @@ const SERVICES: Service[] = [
   },
 ];
 
+// Ссылка «сертифицированный модератор…»: при наведении показывает удостоверение, по нажатию открывает его.
+function CertLink({ children }: { children: ReactNode }) {
+  return (
+    <a href="/cert-moderation.webp" target="_blank" rel="noreferrer" className={s.certLink}>
+      {children}
+      <span className={s.certPreview} aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/cert-moderation.webp" alt="" loading="lazy" />
+        <span>Мастер организации групповой работы · Ретрит для бизнес-форума · Академия Модерации, 2025</span>
+      </span>
+    </a>
+  );
+}
+
 export default function Dev() {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
@@ -134,7 +148,7 @@ export default function Dev() {
             <em>Тюльпанов</em>
           </h1>
           <p className={s.heroDesc}>
-            Предприниматель, сертифицированный модератор и ретрит-тренер.
+            Предприниматель, <CertLink>сертифицированный модератор и тренер бизнес-форумов</CertLink>.
             С 2021 года работаю с форум-группами в бизнес-клубах России:
             Атланты, Клуб Первых, Эквиум, Основатели и других.
           </p>
@@ -209,7 +223,8 @@ export default function Dev() {
               />
             </div>
             <p>
-              Сертифицированный модератор и ретрит-тренер <strong>Академии Модерации</strong>.
+              <CertLink>Сертифицированный модератор и тренер бизнес-форумов</CertLink>{" "}
+              <strong>Академии Модерации</strong>.
               Социальный предприниматель — основатель проекта «Природные дороги» (ecodorogi.ru).
               С 2021 года провожу форумы и ретриты в ведущих бизнес-клубах России.
             </p>
@@ -229,32 +244,10 @@ export default function Dev() {
         </div>
       </section>
 
-      {/* CERTS */}
-      <section id="certs" className={s.section}>
-        <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>02</span>
-          <h2 className={s.sectionTitle}>Сертификаты и дипломы</h2>
-        </div>
-        <div className={`${s.certsGrid} reveal`}>
-          <div className={s.certCard}>
-            <Image
-              src="/cert-moderation.webp"
-              alt="Удостоверение Академии Модерации"
-              width={480}
-              height={340}
-              className={s.certImg}
-            />
-            <p className={s.certCaption}>
-              Мастер организации групповой работы · Ретрит для бизнес-форума · Академия Модерации, 2025
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* SITUATIONS */}
       <section id="tasks" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>03</span>
+          <span className={s.sectionNum}>02</span>
           <h2 className={s.sectionTitle}>С чем ко мне приходят</h2>
         </div>
         <div className={s.situations}>
@@ -270,7 +263,7 @@ export default function Dev() {
       {/* SERVICES */}
       <section id="services" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>04</span>
+          <span className={s.sectionNum}>03</span>
           <h2 className={s.sectionTitle}>Услуги</h2>
         </div>
         <div className={s.servicesGrid}>
@@ -328,7 +321,7 @@ export default function Dev() {
       {/* REVIEWS */}
       <section id="reviews" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>05</span>
+          <span className={s.sectionNum}>04</span>
           <h2 className={s.sectionTitle}>Отзывы участников</h2>
         </div>
         <blockquote className={`${s.quote} reveal`}>
@@ -347,7 +340,7 @@ export default function Dev() {
       {/* ECO PROJECT */}
       <section id="eco" className={s.sectionEco}>
         <div className={`${s.sectionHeader} ${s.sectionHeaderEco} reveal`}>
-          <span className={s.sectionNum}>06</span>
+          <span className={s.sectionNum}>05</span>
           <h2 className={s.sectionTitle}>Проект Ecodorogi.ru</h2>
         </div>
         <div className={s.ecoInner}>
@@ -389,7 +382,7 @@ export default function Dev() {
       {/* PROJECTS */}
       <section id="projects" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>07</span>
+          <span className={s.sectionNum}>06</span>
           <h2 className={s.sectionTitle}>Проекты</h2>
         </div>
         <div className={`${s.servicesGrid} ${s.projectsGrid}`}>
@@ -417,7 +410,7 @@ export default function Dev() {
       {/* SPORT */}
       <section id="sport" className={s.sectionCard}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>08</span>
+          <span className={s.sectionNum}>07</span>
           <h2 className={s.sectionTitle}>Спорт</h2>
         </div>
         <div className={s.sportInner}>
@@ -463,7 +456,7 @@ export default function Dev() {
       {/* CONTACT */}
       <section id="contact" className={s.section}>
         <div className={`${s.sectionHeader} reveal`}>
-          <span className={s.sectionNum}>09</span>
+          <span className={s.sectionNum}>08</span>
           <h2 className={s.sectionTitle}>Контакты</h2>
         </div>
         <div className={s.contactInner}>
