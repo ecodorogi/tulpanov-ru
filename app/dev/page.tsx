@@ -163,12 +163,12 @@ export default function Dev() {
               <div className={s.statLabel}>Часов модерации и ретритов</div>
             </div>
             <div className={s.stat}>
-              <div className={s.statNum}>5 400+</div>
-              <div className={s.statLabel}>м - два восхождения в горы</div>
+              <div className={s.statNum}>5 400+ м</div>
+              <div className={s.statLabel}>Два восхождения в Непале</div>
             </div>
             <div className={s.stat}>
-              <div className={s.statNum}>109</div>
-              <div className={s.statLabel}>км - ультра-трейл</div>
+              <div className={s.statNum}>110 км</div>
+              <div className={s.statLabel}>Самая длинная ультра-гонка, и много гонок короче</div>
             </div>
           </div>
           <div className={s.heroTags}>
