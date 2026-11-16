@@ -68,6 +68,15 @@ const Accent = ({ children }: { children: ReactNode }) => <span className={s.han
 
 export default function DevNew() {
   const [menu, setMenu] = useState(false);
+  // Вверху страницы логотип крупный, при прокрутке шапка уменьшается.
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!menu) return;
@@ -80,12 +89,18 @@ export default function DevNew() {
     <div className={s.page}>
       <a className={s.skipLink} href="#main">Перейти к содержимому</a>
 
-      <header className={s.header} id="top">
+      <header className={`${s.header} ${scrolled ? s.headerScrolled : ""}`} id="top">
         <div className={`${s.container} ${s.headerInner}`}>
           <a className={s.brand} href="#top" aria-label="На главную">
-            <span className={s.brandMark} aria-hidden="true">А</span>
-            <span className={s.brandRule} aria-hidden="true" />
-            <span className={s.brandName}>Александр<br />Тюльпанов</span>
+            <Image
+              src="/logo/logo-hybrid.png"
+              alt="Александр Тюльпанов"
+              width={986}
+              height={500}
+              priority
+              sizes="(max-width: 780px) 78vw, 520px"
+              className={s.brandLogo}
+            />
           </a>
           <button
             className={s.menuToggle}
