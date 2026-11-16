@@ -672,7 +672,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
+
+.footerLegal {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-top: 14px;
+  font-size: 12px;
+}
+.footerLegal a { color: var(--muted); text-decoration: none; }
+.footerLegal a:hover { color: var(--accent); text-decoration: underline; }
 
 .footerName {
   font-family: var(--font-serif), Georgia, serif;

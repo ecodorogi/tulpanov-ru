@@ -506,6 +506,11 @@ function SuggestForm() {
         value={form.from}
         onChange={set("from")}
       />
+      <p className={styles.consent}>
+        Нажимая «Отправить», вы даёте{" "}
+        <a href="/legal/consent" target="_blank">согласие на обработку персональных данных</a> и принимаете{" "}
+        <a href="/legal/privacy" target="_blank">политику конфиденциальности</a>.
+      </p>
       <div className={styles.reportActions}>
         <button type="submit" className={styles.reportSubmit} disabled={status === "sending"}>
           {status === "sending" ? "Отправляем…" : "Отправить"}

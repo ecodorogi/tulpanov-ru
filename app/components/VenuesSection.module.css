@@ -182,6 +182,9 @@ a.itemName:hover { color: var(--accent); }
   color: #9B3A2E;
 }
 
+.consent { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 2px 0 0; }
+.consent a { color: var(--accent); }
+
 /* Предложить площадку */
 .suggestWrap {
   margin-top: 48px;

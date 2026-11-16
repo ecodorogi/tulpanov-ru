@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import Reviews from "../components/Reviews";
+import LegalLinks from "../components/LegalLinks";
 import { CERT_CAPTION, MEET_URL } from "@/lib/siteContent";
 import s from "./page.module.css";
 
@@ -393,8 +394,11 @@ export default function DevNew() {
 
       <footer className={s.footer}>
         <div className={`${s.container} ${s.footerInner}`}>
-          <span>Александр Тюльпанов</span>
+          <span>ИП Тюльпанов Александр Сергеевич</span>
           <a href="#top">Наверх ↑</a>
+        </div>
+        <div className={s.container}>
+          <LegalLinks className={s.legal} />
         </div>
       </footer>
     </div>

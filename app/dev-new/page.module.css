@@ -298,6 +298,9 @@
 .footer { padding: 40px 0; border-top: 1px solid var(--line); }
 .footerInner { display: flex; justify-content: space-between; color: var(--soft-ink); }
 .page .footerInner a { text-decoration: none; }
+.legal { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; font-size: 13px; }
+.page .legal a { color: var(--soft-ink); text-decoration: none; }
+.page .legal a:hover { color: var(--blue); text-decoration: underline; }
 
 /* ── Удостоверение при наведении ── */
 .page .certLink { position: relative; color: inherit; text-decoration: none; border-bottom: 1px solid var(--blue); }

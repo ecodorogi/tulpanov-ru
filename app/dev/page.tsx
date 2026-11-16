@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, type ReactNode } from "react";
 import Reviews from "../components/Reviews";
+import LegalLinks from "../components/LegalLinks";
 import s from "./page.module.css";
 import { MEET_URL, CLUBS, SITUATIONS, RETREATS, SERVICES } from "@/lib/siteContent";
 
@@ -404,8 +405,9 @@ export default function Dev() {
 
       {/* FOOTER */}
       <footer className={s.footer}>
-        <span className={s.footerName}>Тюльпанов Александр Сергеевич</span>
+        <span className={s.footerName}>ИП Тюльпанов Александр Сергеевич</span>
         <span className={s.footerDomain}>tulpanov.ru · 2026</span>
+        <LegalLinks className={s.footerLegal} />
       </footer>
     </>
   );

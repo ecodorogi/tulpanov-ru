@@ -1,4 +1,5 @@
 import VenuesSection from "../components/VenuesSection";
+import LegalLinks from "../components/LegalLinks";
 import s from "../f/forum.module.css";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function VenuesPage() {
         с отдельными кабинками и загородные базы для выездных ретритов.
       </p>
       <VenuesSection />
+      <LegalLinks className={s.legalLinks} />
     </main>
   );
 }
