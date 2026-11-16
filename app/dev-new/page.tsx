@@ -51,17 +51,6 @@ const CONTACTS = [
   { href: "https://ecodorogi.ru", label: "Проект", value: "ecodorogi.ru" },
 ];
 
-// Клубы в «Обо мне»: логотипы в одном цвете. Файлы в public/clubs (пока маленькие - заменить на SVG/PNG от 400 px).
-// Нет логотипа - показываем название. TODO: Эквиум, Эталон, Миллиард в бане; разрешение клубов на логотипы.
-const CLUB_TILES: { name: string; logo?: { src: string; w: number; h: number; height: number } }[] = [
-  { name: "Атланты", logo: { src: "/clubs/atlanty.png", w: 86, h: 91, height: 44 } },
-  { name: "Клуб Первых", logo: { src: "/clubs/clubfirst.png", w: 210, h: 33, height: 20 } },
-  { name: "Основатели", logo: { src: "/clubs/osnovateli.png", w: 1163, h: 147, height: 20 } },
-  { name: "Эквиум" },
-  { name: "Эталон" },
-  { name: "Миллиард в бане" },
-];
-
 const ext = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {});
 
 // «Сертифицированный модератор…»: при наведении показывает удостоверение, по нажатию открывает его.
@@ -209,20 +198,6 @@ export default function DevNew() {
                 Работаю на стыке предпринимательства, диалога и природы - там, где рождаются
                 настоящие решения и меняются люди.
               </p>
-              <div className={s.clubLogos}>
-                <p className={s.clubLogosLabel}>Клубы и сообщества</p>
-                <ul>
-                  {CLUB_TILES.map((c) => (
-                    <li key={c.name} title={c.name}>
-                      {c.logo ? (
-                        <Image src={c.logo.src} alt={c.name} width={c.logo.w} height={c.logo.h} className={s.clubLogo} style={{ height: c.logo.height }} />
-                      ) : (
-                        <span className={s.clubName}>{c.name}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
             <div className={s.paragraphStack}>
               <p>
