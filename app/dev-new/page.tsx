@@ -154,8 +154,8 @@ export default function DevNew() {
                   <b>Горы и ультра-трейл</b>
                 </div>
                 <div className={s.sportFigures}>
-                  <div><strong>5 400+ м</strong><small>несколько восхождений выше 5 400 м</small></div>
-                  <div><strong>110 км</strong><small>несколько ультрагонок, в том числе на 110 км</small></div>
+                  <div><strong>5 400+ м</strong><small>несколько восхождений выше 5 400 м</small></div>
+                  <div><strong>110 км</strong><small>несколько ультрагонок, в том числе на 110 км</small></div>
                 </div>
               </article>
             </div>
@@ -308,7 +308,7 @@ export default function DevNew() {
               <p className={s.sectionIndex}>07 / Спорт</p>
               <h2 className={s.h2}>Ультра-трейл -<br /><em>движение как философия</em></h2>
               <p className={s.lead}>
-                Бегаю ультра-трейлы - дистанции от 50 км по горным тропам. Личный рекорд: 109,5 км.
+                Бегаю ультра-трейлы - дистанции от 50 км по горным тропам. Личный рекорд: 109,5 км.
                 Люблю горный трекинг.
               </p>
               <p className={s.muted}>
@@ -317,8 +317,8 @@ export default function DevNew() {
               </p>
               <div className={s.sportSummary}>
                 <strong>Горы и ультра-трейл</strong>
-                <span>Несколько восхождений выше 5 400 м</span>
-                <span>Несколько ультрагонок, включая дистанцию 110 км</span>
+                <span>Несколько восхождений выше 5 400 м</span>
+                <span>Несколько ультрагонок, включая дистанцию 110 км</span>
               </div>
             </div>
             <div className={s.sportGallery}>
