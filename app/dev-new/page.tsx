@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import Reviews from "../components/Reviews";
 import LegalLinks from "../components/LegalLinks";
-import { CERT_CAPTION, MEET_URL } from "@/lib/siteContent";
+import { CERT_CAPTION, CLUBS, MEET_URL, SERVICES as SERVICE_DETAILS } from "@/lib/siteContent";
 import s from "./page.module.css";
 
 // Вёрстка по макету tulpanov_claude_handoff (ChatGPT). Факты, цены и контакты - как на текущем сайте.
@@ -14,6 +14,8 @@ const NAV = [
   ["#needs", "Задачи"],
   ["#services", "Услуги"],
   ["#retreats", "Ретриты"],
+  ["#reviews", "Отзывы"],
+  ["#ecodorogi", "Ecodorogi"],
   ["#projects", "Проекты"],
   ["#sport", "Спорт"],
   ["#contacts", "Контакты"],
@@ -22,17 +24,16 @@ const NAV = [
 const tg = (text: string) => `https://t.me/tulpanov?text=${encodeURIComponent(text)}`;
 
 const NEEDS = [
-  { sign: "◌", title: "Форум буксует", text: "Встречи стали формальными, участники приходят «отметиться».", href: "#services", link: "Модерация и настройка форум-групп" },
-  { sign: "⌁", title: "Скрытое напряжение", text: "В группе скрытое напряжение или конфликт, о котором не говорят вслух.", href: "#retreats", link: "Форум-ретрит" },
-  { sign: "◎", title: "Нужна настройка группы", text: "Новые участники, новые правила, общая цель на год.", href: "#retreats", link: "Форум-ретрит" },
-  { sign: "↗", title: "Решения собственника", text: "Партнёры перестали договариваться или бизнес вырос, а управление осталось прежним.", href: "#services", link: "Независимый директор" },
+  { sign: "◌", title: "Форум буксует", text: "Встречи стали формальными, участники приходят «отметиться».", href: "#service-forum", link: "Модерация и настройка форум-групп" },
+  { sign: "⌁", title: "Скрытое напряжение", text: "В группе скрытое напряжение или конфликт, о котором не говорят вслух.", href: "#service-retreat", link: "Форум-ретрит" },
+  { sign: "◎", title: "Нужна настройка группы", text: "Новые участники, новые правила, общая цель на год.", href: "#service-retreat", link: "Форум-ретрит" },
+  { sign: "⇄", title: "Партнёры не договариваются", text: "Партнёры перестали договариваться, важные решения откладываются.", href: "#service-director", link: "Независимый директор" },
+  { sign: "◆", title: "Большое решение", text: "Собственник один на один с большим решением: сделка, смена руководителя, выход из операционки.", href: "#service-director", link: "Независимый директор" },
+  { sign: "↗", title: "Бизнес вырос", text: "Бизнес вырос, а управление осталось прежним - нужен честный взгляд со стороны.", href: "#service-director", link: "Независимый директор" },
 ];
 
-const SERVICES = [
-  { sign: "◯", title: "Форум-ретриты", text: "Для форум-групп бизнес-клубов и команды собственников. Работа с конфликтами, доверием, общей целью.", cta: "Обсудить ретрит", msg: "Здравствуйте! Хочу обсудить ретрит для форум-группы." },
-  { sign: "▤", title: "Модерация и настройка форум-групп", text: "Регулярные встречи по стандартам Академии Модерации: подготовка, ведение, обратная связь группе.", cta: "Обсудить модерацию", msg: "Здравствуйте! Хочу обсудить модерацию форум-группы." },
-  { sign: "✧", title: "Независимый директор", text: "Для собственников бизнеса: стратегия, команда и руководители, разногласия партнёров, подготовка к сделкам. Встреча 2 часа раз в 2 недели, знакомство и стартовая сессия - бесплатно.", cta: "Обсудить", msg: "Здравствуйте! Хочу обсудить независимого директора." },
-];
+// Подробности услуг (Для кого / С чем работаю / Как проходит / Результат) - общие с /dev, из lib/siteContent.
+const SERVICE_SIGNS: Record<string, string> = { "service-retreat": "◯", "service-forum": "▤", "service-director": "✧" };
 
 const RETREATS = [
   ["Форум-ретрит", "Для форум-группы: доверие, настройка группы, правила и общая цель на год."],
@@ -47,6 +48,7 @@ const CONTACTS = [
   { href: "https://t.me/tulpanov", label: "Telegram", value: "@tulpanov" },
   { href: "mailto:a.tulpanov@gmail.com", label: "Email", value: "a.tulpanov@gmail.com" },
   { href: "tel:+79161429848", label: "Телефон", value: "+7 916 142-98-48" },
+  { href: "https://ecodorogi.ru", label: "Проект", value: "ecodorogi.ru" },
 ];
 
 const ext = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {});
@@ -135,9 +137,12 @@ export default function DevNew() {
                 <p className={s.heroDescription}>
                   Модерация форум-групп, ретриты и партнёрство для предпринимателей
                 </p>
-                <a href="#contacts" className={`${s.btn} ${s.btnPrimary}`}>
-                  Обсудить задачу <span aria-hidden="true">→</span>
-                </a>
+                <div className={s.ctaRow}>
+                  <a href={MEET_URL} target="_blank" rel="noopener noreferrer" className={`${s.btn} ${s.btnPrimary}`}>
+                    Обсудить задачу <span aria-hidden="true">→</span>
+                  </a>
+                  <span className={s.ctaNote}>Встреча-знакомство<br />30 минут, бесплатно</span>
+                </div>
               </div>
               <div className={s.portraitArea}>
                 <div className={s.portraitWash} aria-hidden="true" />
@@ -174,6 +179,11 @@ export default function DevNew() {
                   <div><strong>110 км</strong><small>несколько ультрагонок, в том числе на 110 км</small></div>
                 </div>
               </article>
+            </div>
+
+            <div className={s.clubs} aria-label="Клубы">
+              <span className={s.clubsLabel}>Работаю с клубами</span>
+              <ul>{CLUBS.map((c) => <li key={c}>{c}</li>)}</ul>
             </div>
           </div>
         </section>
@@ -244,7 +254,7 @@ export default function DevNew() {
           <div className={s.container}>
             <p className={s.sectionIndex}>02 / Задачи</p>
             <h2 className={s.h2}>С чем ко мне <Accent>приходят</Accent></h2>
-            <div className={`${s.cards} ${s.cardsTwo}`}>
+            <div className={`${s.cards} ${s.cardsThree}`}>
               {NEEDS.map((n) => (
                 <article key={n.title} className={s.card}>
                   <span className={s.cardSign} aria-hidden="true">{n.sign}</span>
@@ -263,15 +273,36 @@ export default function DevNew() {
             <p className={s.sectionIndex}>03 / Услуги</p>
             <h2 className={s.h2}>Форматы <Accent>работы</Accent></h2>
             <div className={`${s.cards} ${s.cardsThree}`}>
-              {SERVICES.map((x) => (
-                <article key={x.title} className={`${s.card} ${s.serviceCard}`}>
-                  <span className={s.cardSign} aria-hidden="true">{x.sign}</span>
-                  <h3 className={s.h3}>{x.title}</h3>
-                  <p>{x.text}</p>
-                  <a href={tg(x.msg)} target="_blank" rel="noopener noreferrer">{x.cta} →</a>
+              {SERVICE_DETAILS.map((x) => (
+                <article key={x.id} id={x.id} className={`${s.card} ${s.serviceCard}`}>
+                  <span className={s.cardSign} aria-hidden="true">{SERVICE_SIGNS[x.id]}</span>
+                  <h3 className={s.h3}>{x.name}</h3>
+                  <dl className={s.rows}>
+                    {x.rows.slice(0, 2).map(([k, v]) => (
+                      <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                    ))}
+                    {x.steps && (
+                      <div>
+                        <dt>Как проходит</dt>
+                        <dd>
+                          <ol className={s.steps}>
+                            {x.steps.map((st) => <li key={st}>{st}</li>)}
+                          </ol>
+                        </dd>
+                      </div>
+                    )}
+                    {x.rows.slice(2).map(([k, v]) => (
+                      <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                    ))}
+                  </dl>
+                  <a href={tg(x.msg)} target="_blank" rel="noopener noreferrer">{x.cta.replace(" →", "")} →</a>
                 </article>
               ))}
             </div>
+            <p className={s.note}>
+              Не знаете, что подходит? Начните со встречи-знакомства: 30 минут, бесплатно.{" "}
+              <a href={MEET_URL} target="_blank" rel="noopener noreferrer">Записаться →</a>
+            </p>
           </div>
         </section>
 
@@ -311,26 +342,51 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 06 ПРОЕКТЫ */}
-        <section className={`${s.section} ${s.pale}`} id="projects">
-          <div className={s.container}>
-            <p className={s.sectionIndex}>06 / Проекты</p>
-            <h2 className={s.h2}>Проекты</h2>
-            <div className={`${s.cards} ${s.cardsThree}`}>
-              <article className={s.card}>
-                <h3 className={s.h3}>Природные дороги</h3>
-                <p>
-                  Социальное предпринимательство - создание сети доступных маршрутов вблизи
-                  городов. Флагманский проект - «Дорога в Лавру». Реализуем совместно с государством.
-                </p>
+        {/* 06 ПРИРОДНЫЕ ДОРОГИ */}
+        <section className={`${s.section} ${s.pale}`} id="ecodorogi">
+          <div className={`${s.container} ${s.sectionGrid}`}>
+            <div>
+              <p className={s.sectionIndex}>06 / Ecodorogi.ru</p>
+              <Image src="/eco-logo.png" alt="Природные дороги" width={120} height={48} className={s.ecoLogo} />
+              <h2 className={s.h2}>Социальное предпринимательство - <Accent>природные дороги</Accent> для людей</h2>
+              <p className={s.lead}>
+                Мой главный проект - «Природные дороги»: создание сети доступных маршрутов вблизи
+                городов. Реализуем совместно с государством.
+              </p>
+              <div className={s.links}>
                 <a href="https://ecodorogi.ru" target="_blank" rel="noopener noreferrer">ecodorogi.ru ↗</a>
-              </article>
+                <a href="https://dorogavposad.ru" target="_blank" rel="noopener noreferrer">dorogavposad.ru ↗</a>
+              </div>
+            </div>
+            <div className={s.ecoFacts}>
+              {[
+                ["Миссия", "Сеть природных дорог вблизи городов - доступных, безопасных и живых"],
+                ["Флагманский проект", "«Дорога в Лавру» - маршрут к Троице-Сергиевой лавре в Сергиевом Посаде"],
+                ["GR-опыт", "Реализация проекта совместно с государством"],
+              ].map(([k, v]) => (
+                <div key={k} className={s.ecoFact}>
+                  <span>{k}</span>
+                  <p>{v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 07 ПРОЕКТЫ */}
+        <section className={s.section} id="projects">
+          <div className={s.container}>
+            <p className={s.sectionIndex}>07 / Проекты</p>
+            <h2 className={s.h2}>Проекты</h2>
+            <div className={`${s.cards} ${s.cardsTwo}`}>
               <article className={s.card}>
+                <span className={s.tag}>CEO · 2021–2025</span>
                 <h3 className={s.h3}>Кути Катай</h3>
-                <p>CEO, 2021–2025. Прокат и аттракционы в парках Москвы и области.</p>
+                <p>Лидер рынка проката и аттракционов в парках Москвы и области.</p>
                 <a href="https://kutikatai.ru" target="_blank" rel="noopener noreferrer">kutikatai.ru ↗</a>
               </article>
               <article className={s.card}>
+                <span className={s.tag}>Экзит → Garmin</span>
                 <h3 className={s.h3}>Watchsport.ru</h3>
                 <p>
                   Основатель и CEO. B2B/B2C-дистрибуция умных устройств в России и Германии.
@@ -341,11 +397,11 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 07 СПОРТ */}
-        <section className={`${s.section} ${s.sport}`} id="sport">
+        {/* 08 СПОРТ */}
+        <section className={`${s.section} ${s.pale} ${s.sport}`} id="sport">
           <div className={`${s.container} ${s.sectionGrid}`}>
             <div>
-              <p className={s.sectionIndex}>07 / Спорт</p>
+              <p className={s.sectionIndex}>08 / Спорт</p>
               <h2 className={s.h2}>Ультра-трейл -<br /><em>движение как философия</em></h2>
               <p className={s.lead}>
                 Бегаю ультра-трейлы - дистанции от 50 км по горным тропам. Личный рекорд: 109,5 км.
@@ -360,6 +416,16 @@ export default function DevNew() {
                 <span>Два восхождения выше 5 400 м</span>
                 <span>Несколько ультрагонок, включая дистанцию 110 км</span>
               </div>
+              <dl className={s.sportFacts}>
+                {[
+                  ["Дисциплина", "Ультра-трейл"],
+                  ["Личный рекорд", "109,5 км"],
+                  ["Трекинг", "5 416 м, Непал"],
+                  ["Клуб", "Атланты"],
+                ].map(([k, v]) => (
+                  <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                ))}
+              </dl>
             </div>
             <div className={s.sportGallery}>
               <Image src="/sport-1.webp" alt="Ультра-трейл: переход через воду" width={400} height={280} />
@@ -369,11 +435,11 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 08 КОНТАКТЫ */}
-        <section className={`${s.section} ${s.pale} ${s.contacts}`} id="contacts">
+        {/* 09 КОНТАКТЫ */}
+        <section className={`${s.section} ${s.contacts}`} id="contacts">
           <div className={`${s.container} ${s.sectionGrid}`}>
             <div>
-              <p className={s.sectionIndex}>08 / Контакты</p>
+              <p className={s.sectionIndex}>09 / Контакты</p>
               <h2 className={s.h2}>
                 Есть идея для ретрита, нужен модератор для форум-группы или хотите поговорить -{" "}
                 <Accent>напишите мне.</Accent>
