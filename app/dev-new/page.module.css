@@ -406,7 +406,8 @@
   .lead { font-size: 20px; }
   .cardsThree { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .retreats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .page .contactList a { grid-template-columns: 78px 1fr 20px; }
+  .page .contactList a { grid-template-columns: 104px 1fr 20px; }
+  .contactList a span:first-child { letter-spacing: 0.06em; font-size: 11px; }
 }
 
 @media (max-width: 500px) {

@@ -29,7 +29,7 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
     <div className={`${s.page} ${inter.variable}`}>
       <header className={s.header}>
         <a href="/" aria-label="На главную">
-          <Image src="/logo/logo-hybrid.png" alt="Александр Тюльпанов" width={986} height={500} sizes="180px" className={s.logo} />
+          <Image src="/logo/logo-hybrid.png" alt="Александр Тюльпанов" width={986} height={500} sizes="180px" className={s.logo} priority />
         </a>
       </header>
       <main className={s.main}>
