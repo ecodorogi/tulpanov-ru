@@ -1,0 +1,409 @@
+/* Стили /dev-new по макету tulpanov_claude_handoff/styles.css, перенесены в CSS-модуль. */
+
+.page {
+  --blue: #086ecf;
+  --cyan: #45b5fa;
+  --ink: #14223a;
+  --soft-ink: #586577;
+  --line: #d7e6f2;
+  --wash: #eaf6ff;
+  --pale: #f6fbff;
+  --white: #fff;
+  --max: 1200px;
+  --radius: 22px;
+  /* для общей галереи отзывов */
+  --bg: #fff;
+  --card: #f6fbff;
+  --muted: #586577;
+
+  min-width: 320px;
+  font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--white);
+  font-synthesis: none;
+  cursor: auto;
+  overflow-x: clip;
+}
+
+.page a,
+.page button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.page a { color: var(--blue); }
+.page p { line-height: 1.6; }
+.page a:focus-visible,
+.page button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+
+.container { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+.section { padding: 92px 0; scroll-margin-top: 85px; }
+
+.skipLink { position: absolute; top: -60px; left: 16px; padding: 12px; background: #fff; z-index: 100; }
+.skipLink:focus { top: 10px; }
+
+/* ── Шапка ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #e7eef6;
+}
+.headerInner { height: 88px; display: flex; gap: 35px; align-items: center; justify-content: space-between; position: relative; }
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; }
+.page .brand { color: var(--ink); }
+.brandMark {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 54px;
+  line-height: 1;
+  color: var(--blue);
+  font-style: italic;
+  transform: rotate(-8deg);
+  font-weight: 400;
+}
+.brandRule { display: block; width: 2px; height: 41px; background: var(--ink); }
+.brandName { font-weight: 800; font-size: 19px; letter-spacing: -0.05em; line-height: 1.05; }
+.nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(12px, 2.1vw, 29px); }
+.page .nav a { color: var(--ink); font-size: 14px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+.page .nav a:hover { color: var(--blue); }
+.menuToggle { display: none; }
+
+/* ── Главный экран ── */
+.hero { padding-top: 70px; padding-bottom: 74px; }
+.heroLayout { display: grid; grid-template-columns: 1.18fr 0.82fr; align-items: center; gap: 28px; min-height: 455px; }
+.eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin: 0 0 46px;
+  position: relative;
+}
+.eyebrow::after {
+  content: "";
+  position: absolute;
+  width: 146px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  left: 0;
+  bottom: -13px;
+  transform: rotate(-1deg);
+}
+.h1 {
+  font-weight: 850;
+  letter-spacing: -0.059em;
+  font-size: clamp(46px, 4.75vw, 73px);
+  line-height: 1.07;
+  margin: 0 0 33px;
+  font-family: inherit;
+  text-wrap: initial;
+}
+.strokeUnderline { position: relative; white-space: nowrap; }
+.strokeUnderline::after {
+  content: "";
+  height: 8px;
+  position: absolute;
+  left: 10%;
+  right: 5%;
+  bottom: -10px;
+  background: var(--cyan);
+  border-radius: 60% 20% 60% 20%;
+  transform: rotate(-1.5deg);
+  opacity: 0.88;
+}
+.heroDescription { font-size: clamp(19px, 2vw, 27px); font-weight: 500; line-height: 1.42; max-width: 540px; margin: 0 0 35px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  padding: 18px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(8, 110, 207, 0.15); }
+.page .btnPrimary { background: var(--blue); color: var(--white); }
+
+.portraitArea { position: relative; width: min(100%, 415px); justify-self: end; isolation: isolate; padding: 20px 0 18px 16px; }
+.portraitWash {
+  position: absolute;
+  inset: 13px -8px 0 18px;
+  background: linear-gradient(135deg, rgba(89, 192, 255, 0.1), rgba(115, 193, 245, 0.37));
+  border-radius: 55% 46% 50% 28%;
+  z-index: -1;
+}
+.portrait {
+  width: 100%;
+  height: 425px;
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: 49% 49% 30% 30% / 42% 40% 18% 20%;
+  border: 4px solid #fff;
+  display: block;
+}
+.portraitCurve { position: absolute; width: 110%; height: 105%; left: -5%; top: -3%; color: var(--blue); z-index: -1; opacity: 0.9; }
+
+/* ── Показатели ── */
+.achievementRow {
+  border-top: 1px solid #e8f1f9;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.05fr 2fr;
+  align-items: stretch;
+}
+.achievement { padding: 17px 22px; display: flex; gap: 13px; align-items: center; min-height: 114px; border-right: 1px solid var(--line); }
+.achievement:first-child { padding-left: 0; }
+.achievement:last-child { border-right: 0; }
+.achievementIcon { font-size: 38px; font-weight: 400; color: var(--blue); line-height: 1; }
+.achievement strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(28px, 2.5vw, 36px);
+  font-weight: 820;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+  white-space: nowrap;
+}
+.achievement small { display: block; font-size: 13px; line-height: 1.3; margin-top: 5px; }
+.achievementSport {
+  margin-left: 18px;
+  border: 1px solid #cce5fa;
+  border-radius: 20px;
+  padding: 14px 19px;
+  background: linear-gradient(115deg, #f4fbff, #dcefff);
+  display: block;
+}
+.achievementSport:first-child { padding-left: 19px; }
+.achievementSportHeading { display: flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 800; margin-bottom: 9px; }
+.achievementSportHeading .achievementIcon { font-size: 23px; }
+.sportFigures { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sportFigures > div + div { border-left: 1px solid #bcdbf2; padding-left: 15px; }
+.sportFigures strong { font-size: 28px; }
+.sportFigures small { font-size: 12px; }
+
+/* ── Общие элементы разделов ── */
+.h2 {
+  margin: 0 0 26px;
+  font-family: inherit;
+  font-size: clamp(34px, 3.8vw, 53px);
+  letter-spacing: -0.045em;
+  line-height: 1.13;
+  font-weight: 820;
+}
+.h2 em { color: var(--blue); font-weight: 500; font-style: italic; }
+.h3 { font-family: inherit; font-size: 24px; line-height: 1.2; letter-spacing: -0.035em; margin: 0 0 14px; font-weight: 750; }
+.sectionIndex { color: var(--blue); letter-spacing: 0.16em; text-transform: uppercase; font-size: 12px; font-weight: 800; margin: 0 0 22px; }
+.sectionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(45px, 7vw, 110px); align-items: start; }
+.lead { font-size: 22px; line-height: 1.48; font-weight: 600; margin: 0 0 20px; }
+.muted { color: var(--soft-ink); font-size: 17px; }
+.paragraphStack p { font-size: 17px; margin: 0 0 23px; color: var(--soft-ink); }
+.handAccent { position: relative; color: var(--blue); }
+.handAccent::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  border-bottom: 4px solid var(--cyan);
+  border-radius: 40%;
+  transform: rotate(-2deg);
+}
+.pale { background: var(--pale); }
+
+.cards { display: grid; gap: 18px; margin-top: 34px; }
+.cardsTwo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cardsThree { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card {
+  background: #fff;
+  border: 1px solid #cbddee;
+  border-radius: var(--radius);
+  padding: 28px;
+  min-height: 195px;
+  box-shadow: 0 10px 30px rgba(38, 98, 157, 0.035);
+}
+.cardSign { color: var(--blue); font-size: 34px; display: block; line-height: 1.1; margin-bottom: 20px; }
+.card p { color: var(--soft-ink); margin: 0 0 18px; }
+.page .card a { color: var(--blue); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+.serviceCard { display: flex; flex-direction: column; }
+.price { margin-top: auto; padding-top: 18px; font-weight: 800; font-size: 22px; }
+.page .serviceCard a { align-self: start; margin-top: 20px; }
+.sectionIntro { color: var(--soft-ink); font-size: 20px; }
+.retreats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.retreats .card { padding: 20px; min-height: 210px; }
+.retreats .h3 { font-size: 21px; }
+.retreats p { font-size: 14px; }
+
+/* ── Отзывы ── */
+.quote {
+  margin: 0;
+  border-left: 5px solid var(--blue);
+  padding: 12px 0 12px 35px;
+  font-size: clamp(20px, 2.1vw, 27px);
+  line-height: 1.5;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+.quote cite { display: block; margin-top: 12px; color: var(--soft-ink); font-family: inherit; font-size: 15px; font-style: normal; }
+.reviews { margin-top: 48px; }
+.page .textLink { display: inline-block; margin-top: 28px; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* ── Спорт ── */
+.sportSummary { display: flex; flex-direction: column; gap: 8px; background: var(--wash); padding: 20px 22px; border-radius: 18px; margin-top: 24px; }
+.sportSummary strong { color: var(--blue); font-size: 20px; }
+.sportSummary span::before { content: "→"; padding-right: 8px; color: var(--blue); }
+.sportGallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: stretch; }
+.sportGallery img { width: 100%; height: 205px; object-fit: cover; border-radius: 17px; display: block; }
+.sportGallery img:last-child { grid-column: span 2; height: 220px; }
+
+/* ── Контакты ── */
+.contacts .h2 { font-size: clamp(30px, 3vw, 43px); }
+.page .contactList a {
+  display: grid;
+  grid-template-columns: 110px 1fr 28px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #cbddee;
+  min-height: 85px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.page .contactList a:first-child { border-top: 1px solid #cbddee; }
+.page .contactList a:hover strong { color: var(--blue); }
+.contactList a span:first-child { font-size: 12px; letter-spacing: 0.12em; color: var(--soft-ink); text-transform: uppercase; }
+.contactList strong { overflow-wrap: anywhere; font-size: 16px; font-weight: 700; }
+.contactList a span:last-child { color: var(--blue); font-size: 22px; }
+
+.footer { padding: 40px 0; border-top: 1px solid var(--line); }
+.footerInner { display: flex; justify-content: space-between; color: var(--soft-ink); }
+.page .footerInner a { text-decoration: none; }
+
+/* ── Удостоверение при наведении ── */
+.page .certLink { position: relative; color: inherit; text-decoration: none; border-bottom: 1px solid var(--blue); }
+.page .certLink:hover { color: var(--blue); }
+.certPreview {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  z-index: 40;
+  width: 340px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(18, 44, 78, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  pointer-events: none;
+}
+.certPreview img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.certPreview span { font-size: 12px; line-height: 1.5; color: var(--soft-ink); }
+.certLink:hover .certPreview,
+.certLink:focus-visible .certPreview { opacity: 1; visibility: visible; transform: none; }
+@media (hover: none) { .certPreview { display: none; } }
+
+/* ── Адаптив ── */
+@media (max-width: 1130px) {
+  .nav { gap: 12px; }
+  .page .nav a { font-size: 13px; }
+  .retreats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .heroLayout { grid-template-columns: 1fr 0.83fr; }
+  .achievementRow { grid-template-columns: 1fr 1fr; }
+  .achievementSport { grid-column: span 2; margin: 18px 0 0; }
+  .achievement:nth-child(2) { border-right: 0; }
+}
+
+@media (max-width: 780px) {
+  .container { width: min(calc(100% - 32px), var(--max)); }
+  .section { padding: 63px 0; scroll-margin-top: 72px; }
+  .headerInner { height: 72px; }
+  .menuToggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    padding: 12px;
+    margin-right: -12px;
+  }
+  .menuToggle span { width: 24px; height: 2px; background: var(--ink); }
+  .nav {
+    display: none;
+    position: absolute;
+    left: -16px;
+    right: -16px;
+    top: 72px;
+    background: #fff;
+    padding: 20px 24px 26px;
+    box-shadow: 0 18px 24px rgba(18, 44, 78, 0.09);
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  .navOpen { display: flex; }
+  .page .nav a { font-size: 17px; }
+  .hero { padding: 38px 0 55px; }
+  .heroLayout { grid-template-columns: 1fr; gap: 18px; min-height: 0; }
+  .heroCopy { order: 2; }
+  .portraitArea { order: 1; width: min(100%, 330px); justify-self: center; padding: 5px; }
+  .portrait { height: 300px; }
+  .portraitCurve { display: none; }
+  .eyebrow { margin: 0 0 30px; font-size: 11px; }
+  .h1 { font-size: clamp(38px, 9vw, 54px); }
+  .heroDescription { font-size: 18px; }
+  .achievementRow { margin-top: 36px; padding-top: 19px; }
+  .achievement { padding: 8px 7px; gap: 7px; }
+  .achievement strong { font-size: 27px; }
+  .achievementIcon { font-size: 25px; }
+  .achievement small { font-size: 11px; }
+  .achievementSport { padding: 16px; }
+  .sportFigures strong { font-size: 25px; }
+  .sectionGrid { grid-template-columns: 1fr; gap: 24px; }
+  .lead { font-size: 20px; }
+  .cardsThree { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .retreats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page .contactList a { grid-template-columns: 78px 1fr 20px; }
+}
+
+@media (max-width: 500px) {
+  .brandMark { font-size: 42px; }
+  .brandRule { height: 33px; }
+  .brandName { font-size: 17px; }
+  .h1 { font-size: 39px; }
+  .strokeUnderline { white-space: normal; }
+  .cardsTwo,
+  .cardsThree,
+  .retreats { grid-template-columns: 1fr; }
+  .card,
+  .retreats .card { min-height: unset; }
+  .sportGallery { gap: 8px; }
+  .sportGallery img { height: 160px; }
+  .sportGallery img:last-child { height: 180px; }
+  .achievementSportHeading b { font-size: 15px; }
+  .sportFigures small { font-size: 11px; }
+}
+
+@media (max-width: 360px) {
+  .h1 { font-size: 34px; }
+  .achievement strong { font-size: 23px; }
+  .sportFigures { gap: 10px; }
+  .sportFigures strong { font-size: 21px; }
+  .sportFigures > div + div { padding-left: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after { transition: none !important; }
+}
