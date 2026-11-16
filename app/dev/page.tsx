@@ -205,7 +205,6 @@ export default function Dev() {
                   <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
                 ))}
               </dl>
-              <p className={s.servicePrice}>{x.price}</p>
               <a
                 href={`https://t.me/tulpanov?text=${encodeURIComponent(x.msg)}`}
                 target="_blank"

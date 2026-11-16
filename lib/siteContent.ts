@@ -31,6 +31,7 @@ export type Service = {
   name: string;
   rows: [string, string][];
   steps?: string[];
+  // Цены пока не показываем на сайте (решение Александра 2026-11-16).
   price: string;
   cta: string;
   msg: string;
