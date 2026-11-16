@@ -348,7 +348,7 @@ export default function DevNew() {
             <div>
               <p className={s.sectionIndex}>06 / Ecodorogi.ru</p>
               <Image src="/eco-logo.png" alt="Природные дороги" width={120} height={48} className={s.ecoLogo} />
-              <h2 className={s.h2}>Социальное предпринимательство - <Accent>природные дороги</Accent> для людей</h2>
+              <h2 className={s.h2}>Социальное предпринимательство - <Accent>природные дороги</Accent> для людей</h2>
               <p className={s.lead}>
                 Мой главный проект - «Природные дороги»: создание сети доступных маршрутов вблизи
                 городов. Реализуем совместно с государством.
