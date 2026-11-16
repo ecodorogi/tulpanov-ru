@@ -33,7 +33,7 @@ export default function Home() {
           priority
         />
       </div>
-      <p className={styles.role}>Предприниматель · ретрит-тренер и модератор бизнес-форумов</p>
+      <p className={styles.role}>Предприниматель · модератор и ретрит-тренер форум-групп</p>
       <p className={styles.status}>Сайт готовится к запуску</p>
       <a href="https://t.me/tulpanov" target="_blank" rel="noreferrer" className={styles.link}>
         Написать в Telegram <span aria-hidden="true">→</span>

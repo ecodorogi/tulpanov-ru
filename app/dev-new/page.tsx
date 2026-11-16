@@ -190,7 +190,7 @@ export default function DevNew() {
             </div>
             <div className={s.paragraphStack}>
               <p>
-                <CertLink>Сертифицированный модератор и тренер бизнес-форумов</CertLink>{" "}
+                <CertLink>Сертифицированный модератор и ретрит-тренер форум-групп</CertLink>{" "}
                 Академии Модерации. Социальный предприниматель - основатель проекта
                 «Природные дороги» (ecodorogi.ru).
               </p>
