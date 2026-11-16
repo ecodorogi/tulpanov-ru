@@ -180,6 +180,29 @@
 .sportFigures strong { font-size: 28px; }
 .sportFigures small { font-size: 12px; }
 
+/* ── О себе ── */
+.personal {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 7vw, 110px);
+  padding: 36px 40px;
+  background: var(--pale);
+  border: 1px solid #cce5fa;
+  border-radius: var(--radius);
+}
+.personalCredo {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+  border-left: 4px solid var(--cyan);
+  padding-left: 18px;
+}
+.personalText p { margin: 0 0 14px; font-size: 17px; color: var(--soft-ink); }
+.personalText p:last-child { margin-bottom: 0; }
+
 /* ── Общие элементы разделов ── */
 .h2 {
   margin: 0 0 26px;
@@ -375,6 +398,8 @@
   .achievementSport { padding: 16px; }
   .sportFigures strong { font-size: 25px; }
   .sectionGrid { grid-template-columns: 1fr; gap: 24px; }
+  .personal { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; margin-top: 40px; }
+  .personalCredo { font-size: 18px; }
   .lead { font-size: 20px; }
   .cardsThree { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .retreats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
