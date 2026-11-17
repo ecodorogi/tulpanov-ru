@@ -26,7 +26,11 @@ export default function SiteShell({ home, children }: { home: boolean; children:
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    // Разные пороги на сжатие и разжатие, чтобы шапка не дёргалась у границы.
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled((was) => (was ? y > 8 : y > 60));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -95,6 +99,7 @@ export default function SiteShell({ home, children }: { home: boolean; children:
           </nav>
         </div>
       </header>
+      <div className={s.headerSpacer} aria-hidden="true" />
 
       {children}
 
