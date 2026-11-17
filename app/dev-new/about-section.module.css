@@ -16,6 +16,8 @@
 .tn-about *, .tn-about *::before, .tn-about *::after { box-sizing: border-box; }
 .tn-about__container { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
 .tn-about p { margin: 0; }
+/* Глобальные h2/h3 сайта (Cormorant) не должны влиять на раздел. */
+.tn-about h2, .tn-about h3 { font-family: inherit; color: var(--tn-ink); }
 .tn-about__heading { display: grid; grid-template-columns: 1fr auto; align-items: end; margin: 0 0 60px; }
 .tn-about__section-index { grid-column: 1 / -1; font-size: 15px; font-weight: 650; color: var(--tn-blue); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 20px !important; }
 .tn-about__section-index span { color: #B4C4D3; padding: 0 4px; }
