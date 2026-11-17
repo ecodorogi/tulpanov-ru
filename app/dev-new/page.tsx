@@ -68,21 +68,23 @@ export default function DevNew() {
                   </a>
                   <span className={s.ctaNote}>Встреча-знакомство<br />30 минут, бесплатно</span>
                 </div>
-                <a href={ABOUT_PAGE} className={`${s.teaserLink} ${s.heroAboutLink}`}>Познакомиться ближе →</a>
               </div>
-              <div className={s.portraitArea}>
-                <div className={s.portraitWash} aria-hidden="true" />
-                <Image
-                  className={s.portrait}
-                  src="/alexander.jpg"
-                  alt="Александр Тюльпанов"
-                  width={650}
-                  height={722}
-                  priority
-                />
-                <svg className={s.portraitCurve} viewBox="0 0 460 520" fill="none" aria-hidden="true">
-                  <path d="M93 37C259 -38 411 58 432 173C459 322 359 460 196 494C81 518 1 459 17 379" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                </svg>
+              <div className={s.heroAside}>
+                <div className={s.portraitArea}>
+                  <div className={s.portraitWash} aria-hidden="true" />
+                  <Image
+                    className={s.portrait}
+                    src="/alexander.jpg"
+                    alt="Александр Тюльпанов"
+                    width={650}
+                    height={722}
+                    priority
+                  />
+                  <svg className={s.portraitCurve} viewBox="0 0 460 520" fill="none" aria-hidden="true">
+                    <path d="M93 37C259 -38 411 58 432 173C459 322 359 460 196 494C81 518 1 459 17 379" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <a href={ABOUT_PAGE} className={`${s.teaserLink} ${s.heroAboutLink}`}>Познакомиться ближе →</a>
               </div>
             </div>
 

@@ -213,7 +213,10 @@
 .teaserPhoto img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 22px 22px 60px 22px; }
 
 /* Ссылка на «Про меня» под кнопкой на первом экране. */
-.page .heroAboutLink { margin-top: 22px; font-size: 16px; }
+/* Правая колонка первого экрана: фото + ссылка под ним. */
+.heroAside { justify-self: end; width: min(100%, 415px); display: flex; flex-direction: column; align-items: center; }
+.heroAside .portraitArea { width: 100%; justify-self: auto; }
+.page .heroAboutLink { margin-top: 18px; font-size: 16px; }
 
 /* ── Низ страницы «Про меня» ── */
 .aboutNext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding: 8px 0 96px; }
@@ -479,6 +482,8 @@
   .heroLayout { grid-template-columns: 1fr; gap: 18px; min-height: 0; }
   .heroCopy { order: 2; }
   .portraitArea { order: 1; width: min(100%, 330px); justify-self: center; padding: 5px; }
+  .heroAside { order: 1; width: min(100%, 330px); justify-self: center; }
+  .page .heroAboutLink { margin-top: 12px; }
   .portrait { height: 300px; }
   .portraitCurve { display: none; }
   .eyebrow { margin: 0 0 30px; font-size: 11px; }
