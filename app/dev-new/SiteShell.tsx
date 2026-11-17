@@ -37,10 +37,18 @@ export default function SiteShell({ home, children }: { home: boolean; children:
   useEffect(() => {
     const id = decodeURIComponent(window.location.hash.slice(1));
     if (!id) return;
-    const go = () => document.getElementById(id)?.scrollIntoView();
-    const raf = requestAnimationFrame(go);
-    const t = setTimeout(go, 500);
-    return () => { cancelAnimationFrame(raf); clearTimeout(t); };
+    // Мгновенно (плавную прокрутку прерывает дорисовка страницы) и с повтором, пока гость сам не начал листать.
+    let userScrolled = false;
+    const stop = () => { userScrolled = true; };
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchstart", stop, { passive: true });
+    const go = () => { if (!userScrolled) document.getElementById(id)?.scrollIntoView({ behavior: "instant" }); };
+    const timers = [0, 300, 900].map((ms) => setTimeout(go, ms));
+    return () => {
+      timers.forEach(clearTimeout);
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchstart", stop);
+    };
   }, []);
 
   useEffect(() => {
