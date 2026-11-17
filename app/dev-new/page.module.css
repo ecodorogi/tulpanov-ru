@@ -330,6 +330,23 @@
   font-style: italic;
 }
 .quote cite { display: block; margin-top: 12px; color: var(--soft-ink); font-family: inherit; font-size: 15px; font-style: normal; }
+/* Карусель цитат: все цитаты в одной ячейке сетки, видна одна. */
+.quotes { min-width: 0; }
+.quotesStack { display: grid; }
+.quotesStack .quote { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s; }
+.quotesStack .quoteActive { opacity: 1; visibility: visible; }
+.quotesNav { display: flex; align-items: center; gap: 16px; margin-top: 22px; padding-left: 40px; }
+.quotesArrow {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid #cbddee; background: #fff; color: var(--blue);
+  font-size: 18px; line-height: 1; font-family: inherit;
+  transition: background 0.2s, border-color 0.2s;
+}
+.quotesArrow:hover { background: var(--wash); border-color: var(--blue); }
+.quotesDots { display: flex; gap: 8px; }
+.quotesDot { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: #cbddee; transition: width 0.2s, background 0.2s; }
+.quotesDotActive { width: 22px; border-radius: 6px; background: var(--blue); }
+@media (prefers-reduced-motion: reduce) { .quotesStack .quote { transition: none; } }
 .reviews { margin-top: 48px; }
 .page .textLink { display: inline-block; margin-top: 28px; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
 
@@ -466,6 +483,7 @@
   .sportFigures strong { font-size: 25px; }
   .sectionGrid { grid-template-columns: 1fr; gap: 24px; }
   .clubs li { font-size: 16px; }
+  .quotesNav { padding-left: 0; }
   .teaser { padding: 44px 0; }
   .teaserGrid { grid-template-columns: 1fr; gap: 24px; }
   .teaserText p { font-size: 16px; }

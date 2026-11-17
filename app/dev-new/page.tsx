@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import Reviews from "../components/Reviews";
 import SiteShell, { ABOUT_PAGE } from "./SiteShell";
+import QuoteCarousel from "./QuoteCarousel";
 import { CLUBS, MEET_URL, SERVICES as SERVICE_DETAILS } from "@/lib/siteContent";
 import s from "./page.module.css";
 
@@ -193,11 +194,7 @@ export default function DevNew() {
               <p className={s.sectionIndex}>04 / Отзывы</p>
               <h2 className={s.h2}>Отзывы <Accent>участников</Accent></h2>
             </div>
-            <blockquote className={s.quote}>
-              «Думай не о тех верных, которые восхваляют твои слова, а о тех, кто
-              доброжелательно обличает твои недостатки»
-              <cite>- Сократ</cite>
-            </blockquote>
+            <QuoteCarousel />
           </div>
           <div className={`${s.container} ${s.reviews}`}>
             <Reviews />
