@@ -1,26 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import Reviews from "../components/Reviews";
-import LegalLinks from "../components/LegalLinks";
-import AboutSection from "./AboutSection";
-import { CERT_CAPTION, CLUBS, MEET_URL, SERVICES as SERVICE_DETAILS } from "@/lib/siteContent";
+import SiteShell, { ABOUT_PAGE } from "./SiteShell";
+import { CLUBS, MEET_URL, SERVICES as SERVICE_DETAILS } from "@/lib/siteContent";
 import s from "./page.module.css";
 
 // Вёрстка по макету tulpanov_claude_handoff (ChatGPT). Факты, цены и контакты - как на текущем сайте.
 
-const NAV = [
-  ["#about", "Обо мне"],
-  ["#needs", "Задачи"],
-  ["#services", "Услуги"],
-  ["#retreats", "Ретриты"],
-  ["#reviews", "Отзывы"],
-  ["#ecodorogi", "Ecodorogi"],
-  ["#projects", "Проекты"],
-  ["#sport", "Спорт"],
-  ["#contacts", "Контакты"],
-];
 
 const tg = (text: string) => `https://t.me/tulpanov?text=${encodeURIComponent(text)}`;
 
@@ -54,76 +42,11 @@ const CONTACTS = [
 
 const ext = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {});
 
-// «Сертифицированный модератор…»: при наведении показывает удостоверение, по нажатию открывает его.
-function CertLink({ children }: { children: ReactNode }) {
-  return (
-    <a href="/cert-moderation.webp" target="_blank" rel="noreferrer" className={s.certLink}>
-      {children}
-      <span className={s.certPreview} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/cert-moderation.webp" alt="" loading="lazy" />
-        <span>{CERT_CAPTION}</span>
-      </span>
-    </a>
-  );
-}
-
 const Accent = ({ children }: { children: ReactNode }) => <span className={s.handAccent}>{children}</span>;
 
 export default function DevNew() {
-  const [menu, setMenu] = useState(false);
-  // Вверху страницы логотип крупный, при прокрутке шапка уменьшается.
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!menu) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenu(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [menu]);
-
   return (
-    <div className={s.page}>
-      <a className={s.skipLink} href="#main">Перейти к содержимому</a>
-
-      <header className={`${s.header} ${scrolled ? s.headerScrolled : ""}`} id="top">
-        <div className={`${s.container} ${s.headerInner}`}>
-          <a className={s.brand} href="#top" aria-label="На главную">
-            <Image
-              src="/logo/logo-hybrid.png"
-              alt="Александр Тюльпанов"
-              width={986}
-              height={500}
-              priority
-              sizes="(max-width: 780px) 78vw, 520px"
-              className={s.brandLogo}
-            />
-          </a>
-          <button
-            className={s.menuToggle}
-            type="button"
-            aria-label={menu ? "Закрыть меню" : "Открыть меню"}
-            aria-controls="site-nav"
-            aria-expanded={menu}
-            onClick={() => setMenu((v) => !v)}
-          >
-            <span /><span /><span />
-          </button>
-          <nav className={`${s.nav} ${menu ? s.navOpen : ""}`} id="site-nav" aria-label="Основная навигация">
-            {NAV.map(([href, label]) => (
-              <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>
-            ))}
-          </nav>
-        </div>
-      </header>
-
+    <SiteShell home>
       <main id="main">
         {/* ГЛАВНЫЙ ЭКРАН */}
         <section className={`${s.section} ${s.hero}`} aria-labelledby="hero-title">
@@ -189,13 +112,10 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 01 ПРО МЕНЯ - отдельный компонент по макету tulpanov_pro_menya */}
-        <AboutSection cert={(text) => <CertLink>{text}</CertLink>} />
-
-        {/* 02 ЗАДАЧИ */}
+        {/* 01 ЗАДАЧИ */}
         <section className={`${s.section} ${s.pale}`} id="needs">
           <div className={s.container}>
-            <p className={s.sectionIndex}>02 / Задачи</p>
+            <p className={s.sectionIndex}>01 / Задачи</p>
             <h2 className={s.h2}>С чем ко мне <Accent>приходят</Accent></h2>
             <div className={`${s.cards} ${s.cardsThree}`}>
               {NEEDS.map((n) => (
@@ -210,10 +130,10 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 03 УСЛУГИ */}
+        {/* 02 УСЛУГИ */}
         <section className={s.section} id="services">
           <div className={s.container}>
-            <p className={s.sectionIndex}>03 / Услуги</p>
+            <p className={s.sectionIndex}>02 / Услуги</p>
             <h2 className={s.h2}>Форматы <Accent>работы</Accent></h2>
             <div className={`${s.cards} ${s.cardsThree}`}>
               {SERVICE_DETAILS.map((x) => (
@@ -249,10 +169,10 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 04 РЕТРИТЫ */}
+        {/* 03 РЕТРИТЫ */}
         <section className={`${s.section} ${s.pale}`} id="retreats">
           <div className={s.container}>
-            <p className={s.sectionIndex}>04 / Ретриты</p>
+            <p className={s.sectionIndex}>03 / Ретриты</p>
             <h2 className={s.h2}>Какие бывают <Accent>ретриты</Accent></h2>
             <p className={s.sectionIntro}>Подбор формата под задачу группы - без универсальных сценариев.</p>
             <div className={`${s.cards} ${s.retreats}`}>
@@ -266,11 +186,11 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 05 ОТЗЫВЫ */}
+        {/* 04 ОТЗЫВЫ */}
         <section className={s.section} id="reviews">
           <div className={`${s.container} ${s.sectionGrid}`}>
             <div>
-              <p className={s.sectionIndex}>05 / Отзывы</p>
+              <p className={s.sectionIndex}>04 / Отзывы</p>
               <h2 className={s.h2}>Отзывы <Accent>участников</Accent></h2>
             </div>
             <blockquote className={s.quote}>
@@ -282,6 +202,26 @@ export default function DevNew() {
           <div className={`${s.container} ${s.reviews}`}>
             <Reviews />
             <a href="/venues" className={s.textLink}>Площадки для встреч и ретритов →</a>
+          </div>
+        </section>
+
+        {/* 05 ПРО МЕНЯ - коротко; полная история на отдельной странице. id="about" сохраняет старые ссылки #about. */}
+        <section className={`${s.section} ${s.teaser}`} id="about">
+          <div className={`${s.container} ${s.teaserGrid}`}>
+            <div>
+              <p className={s.sectionIndex}>05 / Про меня</p>
+              <h2 className={s.h2}><Accent>Про меня</Accent></h2>
+              <div className={s.teaserText}>
+                <p>Я Александр Тюльпанов. Предприниматель, модератор форум-групп и человек, который любит собирать людей вокруг общей цели.</p>
+                <p>Больше 15 лет в бизнесе. Сам состою в форум-группе, поэтому знаю этот формат с двух сторон.</p>
+                <p>За пределами работы люблю семью, длинные дистанции, горы и развиваю проект «Природные дороги».</p>
+                <p className={s.teaserCredo}>Верю, что иногда для большого решения достаточно одного честного разговора.</p>
+              </div>
+              <a href={ABOUT_PAGE} className={s.teaserLink}>Познакомиться ближе →</a>
+            </div>
+            <div className={s.teaserPhoto}>
+              <Image src="/sport-3.webp" alt="Александр на перевале Торонг-Ла, Непал" width={400} height={280} sizes="(max-width: 780px) 100vw, 480px" />
+            </div>
           </div>
         </section>
 
@@ -400,16 +340,6 @@ export default function DevNew() {
           </div>
         </section>
       </main>
-
-      <footer className={s.footer}>
-        <div className={`${s.container} ${s.footerInner}`}>
-          <span>ИП Тюльпанов Александр Сергеевич</span>
-          <a href="#top">Наверх ↑</a>
-        </div>
-        <div className={s.container}>
-          <LegalLinks className={s.legal} />
-        </div>
-      </footer>
-    </div>
+    </SiteShell>
   );
 }

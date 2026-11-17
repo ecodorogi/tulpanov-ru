@@ -196,6 +196,19 @@
 .clubs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
 .clubs li { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
 
+/* ── Короткий «Про меня» на главной ── */
+.teaser { padding: 80px 0; border-top: 1px solid var(--line); }
+.teaserGrid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.teaserGrid > * { min-width: 0; }
+.teaserText p { margin: 0 0 16px; font-size: 18px; line-height: 1.6; color: var(--soft-ink); }
+.teaserText .teaserCredo { color: var(--ink); font-weight: 650; font-size: 20px; margin-top: 22px; }
+.page .teaserLink { display: inline-block; margin-top: 18px; font-weight: 700; font-size: 17px; text-decoration: none; border-bottom: 2px solid var(--cyan); padding-bottom: 2px; }
+.page .teaserLink:hover { color: var(--ink); }
+.teaserPhoto img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 22px 22px 60px 22px; }
+
+/* ── Низ страницы «Про меня» ── */
+.aboutNext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding: 8px 0 96px; }
+
 /* ── Подробности услуг ── */
 .rows { margin: 0 0 6px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
 .rows dt { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
@@ -453,6 +466,12 @@
   .sportFigures strong { font-size: 25px; }
   .sectionGrid { grid-template-columns: 1fr; gap: 24px; }
   .clubs li { font-size: 16px; }
+  .teaser { padding: 44px 0; }
+  .teaserGrid { grid-template-columns: 1fr; gap: 24px; }
+  .teaserText p { font-size: 16px; }
+  .teaserText .teaserCredo { font-size: 18px; }
+  .aboutNext { flex-direction: column-reverse; align-items: stretch; padding-bottom: 64px; }
+  .aboutNext .btn { white-space: normal; text-align: center; }
   .ctaRow { gap: 12px; }
   .ecoFact { padding: 18px 20px; }
   .personal { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; margin-top: 40px; }
