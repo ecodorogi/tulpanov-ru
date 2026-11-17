@@ -483,6 +483,7 @@
   .heroCopy { order: 2; }
   .portraitArea { order: 1; width: min(100%, 330px); justify-self: center; padding: 5px; }
   .heroAside { order: 1; width: min(100%, 330px); justify-self: center; }
+  .heroAside .portraitArea { order: 0; }
   .page .heroAboutLink { margin-top: 12px; }
   .portrait { height: 300px; }
   .portraitCurve { display: none; }
