@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import Reviews from "../components/Reviews";
 import LegalLinks from "../components/LegalLinks";
+import AboutSection from "./AboutSection";
 import { CERT_CAPTION, CLUBS, MEET_URL, SERVICES as SERVICE_DETAILS } from "@/lib/siteContent";
 import s from "./page.module.css";
 
@@ -188,66 +189,8 @@ export default function DevNew() {
           </div>
         </section>
 
-        {/* 01 ОБО МНЕ */}
-        <section className={s.section} id="about">
-          <div className={`${s.container} ${s.sectionGrid}`}>
-            <div>
-              <p className={s.sectionIndex}>01 / Обо мне</p>
-              <h2 className={s.h2}>Обо мне <Accent>и опыт</Accent></h2>
-              <p className={s.lead}>
-                Работаю на стыке предпринимательства, диалога и природы - там, где рождаются
-                настоящие решения и меняются люди.
-              </p>
-            </div>
-            <div className={s.paragraphStack}>
-              <p>
-                <CertLink>Сертифицированный модератор и ретрит-тренер форум-групп</CertLink>{" "}
-                Академии Модерации. Социальный предприниматель - основатель проекта
-                «Природные дороги» (ecodorogi.ru).
-              </p>
-              <p>
-                Резидент бизнес-клуба «Атланты» и лидер его спортивного клуба. Сам уже 6-й год
-                состою в форум-группе - знаю форум и как участник, и как модератор. С 2021 года
-                провожу форумы и ретриты в ведущих бизнес-клубах России.
-              </p>
-              <p>
-                Веду форумы в клубах «Атланты», «Клуб Первых», «Основатели», «Эквиум», «Эталон»,
-                «Миллиард в бане» и в независимых форум-группах. С 2023 года модерирую детские
-                форум-группы.
-              </p>
-              <p>
-                Серийный предприниматель с опытом более 15 лет: экзит из Watchsport.ru (продажа
-                Garmin, 2021), управляющий партнёр «Кути Катай», опыт работы в Германии.
-                Образование: Сколково (Практикум 27, 2023).
-              </p>
-            </div>
-          </div>
-
-          {/* О себе: по-человечески, по примеру раздела «Человек» на tildikov.ru */}
-          <div className={`${s.container} ${s.personal}`}>
-            <div className={s.personalHead}>
-              <h3 className={s.h3}>О себе</h3>
-              <p className={s.personalCredo}>
-                Верю, что большинство решений в бизнесе упираются не в стратегию, а в разговор,
-                который откладывают. Моя работа - помочь этот разговор провести.
-              </p>
-            </div>
-            <div className={s.personalText}>
-              <p>
-                Живу в Москве. Женат, двое детей. Увлекаюсь бегом и активным отдыхом, больше всего
-                люблю горы: дважды поднимался выше 5 400 м в Непале.
-              </p>
-              <p>
-                Бегаю ультра-трейлы - самая длинная гонка 110 км. После неё понимаешь, где у тебя
-                на самом деле заканчиваются силы (обычно сильно дальше, чем думал).
-              </p>
-              <p>
-                Строю «Природные дороги» - пешие маршруты рядом с городами, чтобы до природы можно
-                было дойти, а не доехать.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* 01 ПРО МЕНЯ - отдельный компонент по макету tulpanov_pro_menya */}
+        <AboutSection cert={(text) => <CertLink>{text}</CertLink>} />
 
         {/* 02 ЗАДАЧИ */}
         <section className={`${s.section} ${s.pale}`} id="needs">

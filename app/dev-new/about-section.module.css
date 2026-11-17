@@ -1,0 +1,128 @@
+/* Стили раздела «01 / Про меня» (из about-section.css макета), изолированы в модуле. */
+.tn-about {
+  --tn-blue: #086ECF;
+  --tn-sky: #45B5FA;
+  --tn-ink: #14223A;
+  --tn-muted: #52657D;
+  --tn-rule: #DCE8F4;
+  --tn-surface: #F2F9FF;
+  background: #FFFFFF;
+  color: var(--tn-ink);
+  font-family: var(--font-inter), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 112px 0 136px;
+  line-height: 1.65;
+  overflow: clip;
+}
+.tn-about *, .tn-about *::before, .tn-about *::after { box-sizing: border-box; }
+.tn-about__container { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
+.tn-about p { margin: 0; }
+.tn-about__heading { display: grid; grid-template-columns: 1fr auto; align-items: end; margin: 0 0 60px; }
+.tn-about__section-index { grid-column: 1 / -1; font-size: 15px; font-weight: 650; color: var(--tn-blue); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 20px !important; }
+.tn-about__section-index span { color: #B4C4D3; padding: 0 4px; }
+.tn-about__h1 { position: relative; width: fit-content; font-size: clamp(58px, 6vw, 82px); font-weight: 740; letter-spacing: -.055em; line-height: 1.02; margin: 0; }
+.tn-about__hand-underline { position: absolute; width: 86%; height: 24px; left: 9%; bottom: -23px; overflow: visible; }
+.tn-about__hand-underline path, .tn-about__closing-line path { stroke: var(--tn-sky); stroke-width: 7px; stroke-linecap: round; fill: none; }
+.tn-about__heading-note { font-size: 15px; letter-spacing: .025em; color: var(--tn-muted); padding-bottom: 10px; }
+.tn-about__intro { display: grid; grid-template-columns: 1.35fr .8fr; gap: 88px; align-items: center; padding-top: 16px; padding-bottom: 100px; border-bottom: 1px solid var(--tn-rule); }
+.tn-about__eyebrow { color: var(--tn-blue); font-size: 13px; font-weight: 750; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 22px !important; }
+.tn-about__intro-copy { max-width: 650px; font-size: 19px; line-height: 1.68; }
+.tn-about__intro-copy p + p { margin-top: 23px; }
+.tn-about__intro-copy .tn-about__lead { font-size: 27px; line-height: 1.45; font-weight: 620; letter-spacing: -.024em; }
+.tn-about__portrait { max-width: 408px; margin: 0; position: relative; isolation: isolate; }
+.tn-about__portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; object-position: 50% 32%; border-radius: 22px 22px 70px 22px; position: relative; z-index: 2; }
+.tn-about__portrait figcaption { color: var(--tn-muted); font-size: 13px; margin-top: 12px; }
+.tn-about__portrait-swoosh { position: absolute; width: 112%; height: 106%; left: -3%; top: -4%; z-index: 0; overflow: visible; }
+.tn-about__portrait-swoosh path { stroke: var(--tn-sky); stroke-width: 4; stroke-linecap: round; fill: none; }
+.tn-about__story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 90px 0 102px; }
+.tn-about__story { border: 1px solid var(--tn-rule); border-radius: 24px; padding: 43px 44px 49px; position: relative; background: #fff; }
+.tn-about__story--moderation { background: #F5FAFF; }
+.tn-about__story-num { display: block; color: var(--tn-blue); font-size: 13px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin-bottom: 25px; }
+.tn-about h3 { font-size: clamp(30px, 3vw, 42px); font-weight: 730; letter-spacing: -.046em; line-height: 1.16; margin: 0 0 28px; }
+.tn-about__story p { font-size: 17px; line-height: 1.66; }
+.tn-about__story p + p { margin-top: 16px; }
+.tn-about__aside { color: var(--tn-blue); font-weight: 750; font-style: italic; font-size: 19px !important; }
+.tn-about__story-takeaway { font-weight: 700; font-size: 21px !important; letter-spacing: -.02em; color: var(--tn-blue); margin-top: 26px !important; }
+.tn-about__accent { position: absolute; left: 44px; bottom: 10px; width: 112px; height: 32px; }
+.tn-about__accent path { stroke: var(--tn-sky); stroke-width: 5; stroke-linecap: round; fill: none; }
+.tn-about__roads { display: grid; grid-template-columns: 1.28fr .72fr; align-items: center; gap: 64px; padding: 72px 80px 70px; background: #EAF6FF; border-radius: 30px; overflow: hidden; }
+.tn-about__roads h3 { max-width: 660px; }
+.tn-about__roads p:not(.tn-about__eyebrow) { font-size: 18px; line-height: 1.65; }
+.tn-about__roads p + p { margin-top: 17px; }
+.tn-about__roads strong { color: var(--tn-blue); font-weight: 750; }
+.tn-about__roads-visual { align-self: center; text-align: center; }
+.tn-about__roads-visual svg { display: block; width: 100%; max-width: 360px; margin: 0 auto; }
+.tn-about__roads-visual p { font-size: 15px !important; font-weight: 650; color: var(--tn-blue); }
+.tn-about__personal { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; padding: 114px 0 100px; align-items: center; }
+.tn-about__personal-copy p:not(.tn-about__eyebrow) { font-size: 19px; line-height: 1.68; }
+.tn-about__personal-copy p + p { margin-top: 21px; }
+.tn-about__photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; gap: 12px; }
+.tn-about__photo { overflow: hidden; margin: 0; border-radius: 18px; }
+.tn-about__photo--big { grid-row: 1 / 3; }
+.tn-about__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tn-about__closing { border-top: 1px solid var(--tn-rule); padding: 94px 7% 70px; text-align: center; }
+.tn-about__closing-statement { font-size: clamp(27px, 3.5vw, 47px); line-height: 1.32; font-weight: 675; letter-spacing: -.044em; max-width: 990px; margin-inline: auto !important; }
+.tn-about__closing-line { width: min(590px, 70%); height: 18px; display: block; margin: 16px auto 59px; }
+.tn-about__life-rule { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.tn-about__life-rule span { text-transform: uppercase; letter-spacing: .15em; font-size: 13px; font-weight: 750; color: var(--tn-blue); }
+.tn-about__life-rule strong { font-size: 28px; font-weight: 700; line-height: 1.3; }
+.tn-about__credentials { max-width: 100%; border: 1px solid var(--tn-rule); border-radius: 18px; margin-top: 40px; }
+.tn-about__credentials summary { display: flex; justify-content: space-between; gap: 20px; align-items: center; list-style: none; cursor: pointer; padding: 24px 30px; font-weight: 740; font-size: 20px; }
+.tn-about__credentials summary::-webkit-details-marker { display: none; }
+.tn-about__credentials summary > span { color: var(--tn-blue); font-weight: 580; font-size: 15px; }
+.tn-about__chevron { display: inline-block; font-size: 24px; margin-left: 14px; vertical-align: middle; transition: transform .2s; }
+.tn-about__credentials[open] .tn-about__chevron { transform: rotate(45deg); }
+.tn-about__credentials-content { border-top: 1px solid var(--tn-rule); padding: 32px; columns: 2; column-gap: 44px; }
+.tn-about__credentials-content p { break-inside: avoid; font-size: 16px; }
+.tn-about__credentials-content p + p { margin-top: 16px; }
+@media (max-width: 980px) {
+  .tn-about__container { width: min(100% - 56px, 1200px); }
+  .tn-about__intro { gap: 36px; }
+  .tn-about__story { padding: 34px 30px 40px; }
+  .tn-about__story-grid { gap: 18px; }
+  .tn-about__roads { padding: 54px 45px; gap: 30px; }
+  .tn-about__personal { gap: 34px; }
+}
+@media (max-width: 720px) {
+  .tn-about { padding: 66px 0 85px; }
+  .tn-about__container { width: calc(100% - 40px); }
+  .tn-about__heading { margin-bottom: 38px; grid-template-columns: 1fr; }
+  .tn-about__heading-note { padding: 26px 0 0; font-size: 14px; }
+  .tn-about__section-index { font-size: 12px; margin-bottom: 14px !important; }
+  .tn-about__h1 { font-size: 50px; }
+  .tn-about__hand-underline { bottom: -13px; height: 14px; }
+  .tn-about__intro { display: flex; flex-direction: column-reverse; align-items: stretch; gap: 30px; padding-bottom: 55px; }
+  .tn-about__intro-copy { font-size: 16px; }
+  .tn-about__intro-copy p + p { margin-top: 16px; }
+  .tn-about__intro-copy .tn-about__lead { font-size: 22px; line-height: 1.45; }
+  .tn-about__eyebrow { font-size: 11px; margin-bottom: 14px !important; }
+  .tn-about__portrait { width: 76%; max-width: 310px; align-self: center; }
+  .tn-about__portrait img { border-radius: 18px 18px 48px 18px; }
+  .tn-about__portrait figcaption { font-size: 12px; }
+  .tn-about__story-grid { grid-template-columns: 1fr; gap: 18px; padding: 52px 0; }
+  .tn-about__story { border-radius: 18px; padding: 28px 24px 32px; }
+  .tn-about h3 { font-size: 30px; margin-bottom: 20px; }
+  .tn-about__story-num { font-size: 11px; margin-bottom: 18px; }
+  .tn-about__story p { font-size: 15px; line-height: 1.68; }
+  .tn-about__story p + p { margin-top: 13px; }
+  .tn-about__story-takeaway { font-size: 18px !important; }
+  .tn-about__accent { display: none; }
+  .tn-about__roads { grid-template-columns: 1fr; padding: 34px 26px 20px; gap: 4px; border-radius: 20px; }
+  .tn-about__roads p:not(.tn-about__eyebrow) { font-size: 15px; }
+  .tn-about__roads-visual svg { height: 155px; width: 210px; }
+  .tn-about__roads-visual p { font-size: 11px !important; }
+  .tn-about__personal { grid-template-columns: 1fr; gap: 30px; padding: 62px 0 70px; }
+  .tn-about__personal-copy p:not(.tn-about__eyebrow) { font-size: 16px; }
+  .tn-about__personal-copy p + p { margin-top: 15px; }
+  .tn-about__photos { grid-template-rows: 130px 130px; gap: 9px; }
+  .tn-about__photo { border-radius: 12px; }
+  .tn-about__closing { padding: 65px 0 46px; }
+  .tn-about__closing-statement { font-size: 27px; line-height: 1.35; }
+  .tn-about__closing-line { margin: 18px auto 45px; width: 82%; }
+  .tn-about__life-rule span { font-size: 10px; }
+  .tn-about__life-rule strong { font-size: 23px; }
+  .tn-about__credentials { margin-top: 28px; }
+  .tn-about__credentials summary { padding: 19px 18px; font-size: 16px; }
+  .tn-about__credentials summary > span { font-size: 12px; }
+  .tn-about__credentials-content { padding: 20px; columns: 1; }
+  .tn-about__credentials-content p { font-size: 14px; }
+}
