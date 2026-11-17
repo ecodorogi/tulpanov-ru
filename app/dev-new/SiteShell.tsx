@@ -78,7 +78,7 @@ export default function SiteShell({ home, children }: { home: boolean; children:
               width={986}
               height={500}
               priority
-              sizes="(max-width: 780px) 78vw, 520px"
+              sizes="(max-width: 780px) 200px, 280px"
               className={s.brandLogo}
             />
           </a>

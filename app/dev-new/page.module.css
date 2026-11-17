@@ -57,11 +57,11 @@
 .headerInner { min-height: 88px; padding-block: 14px; display: flex; gap: 35px; align-items: center; justify-content: space-between; position: relative; transition: padding 0.3s ease; }
 /* Логотип: «Александр» рукописный + «ТЮЛЬПАНОВ», картинка с прозрачным фоном (public/logo/logo-hybrid.png, 986×500). */
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: none; }
-.brandLogo { display: block; width: clamp(280px, 30vw, 520px); height: auto; transition: width 0.3s ease; }
+.brandLogo { display: block; width: clamp(200px, 18vw, 280px); height: auto; transition: width 0.3s ease; }
 /* Высота развёрнутой шапки: логотип (пропорция 500/986) + отступы 14+14 + рамка 1. */
-.headerSpacer { height: calc(clamp(280px, 30vw, 520px) * 0.5071 + 29px); }
+.headerSpacer { height: max(89px, calc(clamp(200px, 18vw, 280px) * 0.5071 + 29px)); }
 .headerScrolled .headerInner { padding-block: 8px; }
-.headerScrolled .brandLogo { width: 170px; }
+.headerScrolled .brandLogo { width: 150px; }
 .nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px clamp(12px, 1.5vw, 24px); }
 .page .nav a { color: var(--ink); font-size: 14px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color 0.2s; }
 .page .nav a:hover { color: var(--blue); }
@@ -444,9 +444,9 @@
     gap: 0;
   }
   .brand { grid-column: 2; grid-row: 1; justify-self: center; }
-  .brandLogo { width: min(78vw, 460px); max-width: calc(100vw - 128px); }
-  .headerSpacer { height: max(73px, calc(min(78vw, 460px, 100vw - 128px) * 0.5071 + 21px)); }
-  .headerScrolled .brandLogo { width: 150px; }
+  .brandLogo { width: min(200px, calc(100vw - 128px)); }
+  .headerSpacer { height: max(73px, calc(min(200px, 100vw - 128px) * 0.5071 + 21px)); }
+  .headerScrolled .brandLogo { width: 140px; }
   .menuToggle {
     grid-column: 1;
     grid-row: 1;
