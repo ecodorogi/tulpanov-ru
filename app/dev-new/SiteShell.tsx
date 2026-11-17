@@ -32,6 +32,17 @@ export default function SiteShell({ home, children }: { home: boolean; children:
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Переход с другой страницы по ссылке «/dev-new#services»: браузер не всегда сам доезжает до раздела
+  // (страница дорисовывается после загрузки), поэтому докручиваем вручную - сразу и после картинок.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const go = () => document.getElementById(id)?.scrollIntoView();
+    const raf = requestAnimationFrame(go);
+    const t = setTimeout(go, 500);
+    return () => { cancelAnimationFrame(raf); clearTimeout(t); };
+  }, []);
+
   useEffect(() => {
     if (!menu) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenu(false);
