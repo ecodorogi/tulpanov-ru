@@ -68,6 +68,7 @@ export default function DevNew() {
                   </a>
                   <span className={s.ctaNote}>Встреча-знакомство<br />30 минут, бесплатно</span>
                 </div>
+                <a href={ABOUT_PAGE} className={`${s.teaserLink} ${s.heroAboutLink}`}>Познакомиться ближе →</a>
               </div>
               <div className={s.portraitArea}>
                 <div className={s.portraitWash} aria-hidden="true" />
